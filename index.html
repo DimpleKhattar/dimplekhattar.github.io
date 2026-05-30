@@ -1,133 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Dimple Khattar">
-    <meta name="description" content="Dimple Khattar - Personal portfolio">
-    <title>Dimple Khattar</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!doctype html>
+<html lang=en dir=auto>
+    <head>
+        <meta charset=utf-8>
+        <meta http-equiv=X-UA-Compatible content="IE=edge">
+        <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+        <meta name=robots content="index, follow">
+        <title>Dimple Khattar</title>
+        <meta name=description content="Dimple Khattar - Economics, Data Science, and Technology Policy">
+        <meta name=author content="Dimple Khattar">
+        <link rel=canonical href=https://dimplekhattar.github.io/>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            padding: 60px 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0;
-            text-align: left;
-        }
-
-        /* Profile Section */
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            object-fit: cover;
-            margin: 0 0 30px 0;
-            display: block;
-        }
-
-        h1 {
-            font-family: Cambria, Georgia, serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .bio {
-            font-family: Calibri, 'Segoe UI', sans-serif;
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        /* Social Icons */
-        .social-links {
-            display: flex;
-            justify-content: flex-start;
-            gap: 25px;
-            margin-bottom: 40px;
-            font-size: 1.3em;
-        }
-
-        .social-links a {
-            color: #333;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-        }
-
-        .social-links a:hover {
-            opacity: 0.6;
-        }
-
-
-        /* Responsive */
-        @media (max-width: 600px) {
             body {
-                padding: 40px 15px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                background-color: #ffffff;
+                color: #333;
+                padding: 60px 20px;
             }
 
-            h1 {
-                font-size: 2em;
+            main {
+                max-width: 600px;
+                margin: 0;
             }
 
-            .profile-image {
-                width: 100px;
-                height: 100px;
+            .profile {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .profile_inner {
+                text-align: left;
+            }
+
+            .profile_inner img {
+                width: 120px;
+                height: 120px;
+                border-radius: 20px;
+                margin-bottom: 30px;
+                display: block;
+            }
+
+            .profile_inner h1 {
+                font-family: Cambria, Georgia, serif;
+                font-size: 2.5em;
                 margin-bottom: 20px;
+                font-weight: 700;
+                letter-spacing: -0.5px;
             }
 
-            .bio {
-                font-size: 0.95em;
+            .profile_inner span {
+                font-family: Calibri, 'Segoe UI', sans-serif;
+                font-size: 1em;
+                color: #555;
+                line-height: 1.7;
+                display: block;
+                margin-bottom: 30px;
             }
 
-            .social-links {
+            .social-icons {
+                display: flex;
                 gap: 20px;
-                font-size: 1.1em;
+                margin-bottom: 40px;
+                flex-wrap: wrap;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Profile Picture -->
-        <img src="profile.jpg" alt="Dimple Khattar" class="profile-image">
 
-        <!-- Name -->
-        <h1>Dimple Khattar</h1>
+            .social-icons a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                color: #333;
+                transition: opacity 0.3s;
+            }
 
-        <!-- Bio -->
-        <p class="bio">
-            I am a student at the University of Chicago. I am interested in economics, data science, and technology policy. I work on research projects exploring economic trends, labor markets, and the impact of technology on society.
-        </p>
+            .social-icons a:hover {
+                opacity: 0.6;
+            }
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="resume.pdf">📄</a>
-            <a href="#projects">📊</a>
-            <a href="https://github.com/dimplekhattar" target="_blank">🐙</a>
-            <a href="#education">🎓</a>
-            <a href="mailto:dimplekhattar@uchicago.edu">✉️</a>
-            <a href="#location">📍</a>
-        </div>
+            .social-icons svg {
+                width: 24px;
+                height: 24px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
 
-    </div>
-</body>
+            .buttons {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .button {
+                padding: 10px 20px;
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                text-decoration: none;
+                color: #333;
+                font-weight: 500;
+                font-size: 0.95em;
+                transition: all 0.3s;
+            }
+
+            .button:hover {
+                background-color: #333;
+                color: #fff;
+                border-color: #333;
+            }
+
+            .button-inner {
+                display: inline;
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 40px 15px;
+                }
+
+                .profile_inner h1 {
+                    font-size: 2em;
+                }
+
+                .profile_inner img {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 20px;
+                }
+
+                .social-icons {
+                    gap: 16px;
+                }
+
+                .buttons {
+                    gap: 10px;
+                }
+
+                .button {
+                    padding: 8px 16px;
+                    font-size: 0.9em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class=main>
+            <div class=profile>
+                <div class=profile_inner>
+                    <img src=profile.jpg alt="Dimple Khattar" title height=120 width=120>
+                    <h1>Dimple Khattar</h1>
+                    <span>I am a student at the University of Chicago. I am interested in economics, data science, and technology policy. I work on research projects exploring economic trends, labor markets, and the impact of technology on society.</span>
+                    <div class=social-icons>
+                        <a href=resume.pdf target=_blank rel="noopener noreferrer me" title=Resume>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4v16a2 2 0 002 2h12a2 2 0 002-2V8.342a2 2 0 00-.602-1.43l-4.44-4.342A2 2 0 0013.56 2H6A2 2 0 004 4z"/>
+                                <path d="M9 13h6"/>
+                                <path d="M9 17h3"/>
+                                <path d="M14 2v4a2 2 0 002 2h4"/>
+                            </svg>
+                        </a>
+                        <a href=mailto:dimplekhattar@uchicago.edu target=_blank rel="noopener noreferrer me" title=Email>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                        <a href=https://github.com/dimplekhattar target=_blank rel="noopener noreferrer me" title=GitHub>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class=buttons>
+                        <a class=button href=#projects rel=noopener>
+                            <span class=button-inner>Projects</span>
+                        </a>
+                        <a class=button href=#research rel=noopener>
+                            <span class=button-inner>Research</span>
+                        </a>
+                        <a class=button href=#writing rel=noopener>
+                            <span class=button-inner>Writing</span>
+                        </a>
+                        <a class=button href=#contact rel=noopener>
+                            <span class=button-inner>Contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
 </html>
