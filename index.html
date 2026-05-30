@@ -23,8 +23,8 @@
 
         .container {
             max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
+            margin: 0;
+            text-align: left;
         }
 
         /* Profile Section */
@@ -33,11 +33,12 @@
             height: 120px;
             border-radius: 20px;
             object-fit: cover;
-            margin: 0 auto 30px;
+            margin: 0 0 30px 0;
             display: block;
         }
 
         h1 {
+            font-family: Cambria, Georgia, serif;
             font-size: 2.5em;
             margin-bottom: 20px;
             font-weight: 700;
@@ -45,6 +46,7 @@
         }
 
         .bio {
+            font-family: Calibri, 'Segoe UI', sans-serif;
             font-size: 1em;
             color: #555;
             margin-bottom: 30px;
@@ -54,7 +56,7 @@
         /* Social Icons */
         .social-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 25px;
             margin-bottom: 40px;
             font-size: 1.3em;
@@ -75,33 +77,6 @@
             opacity: 0.6;
         }
 
-        /* Navigation Buttons */
-        .nav-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .nav-btn {
-            padding: 12px 28px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 0.95em;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .nav-btn:hover {
-            background-color: #333;
-            color: #fff;
-            border-color: #333;
-        }
 
         /* Responsive */
         @media (max-width: 600px) {
@@ -126,15 +101,6 @@
             .social-links {
                 gap: 20px;
                 font-size: 1.1em;
-            }
-
-            .nav-buttons {
-                gap: 10px;
-            }
-
-            .nav-btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
             }
         }
     </style>
@@ -162,14 +128,6 @@
             <a href="#location">📍</a>
         </div>
 
-        <!-- Navigation Buttons -->
-        <div class="nav-buttons">
-            <a href="#projects" class="nav-btn">Projects</a>
-            <a href="#research" class="nav-btn">Research</a>
-            <a href="#writing" class="nav-btn">Writing</a>
-            <a href="#contact" class="nav-btn">Contact</a>
-            <a href="resume.pdf" class="nav-btn">Resume</a>
-        </div>
     </div>
 </body>
 </html>
