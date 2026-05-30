@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dimple Khattar">
-    <meta name="description" content="Dimple Khattar - Personal portfolio and professional profile">
+    <meta name="description" content="Dimple Khattar - Personal portfolio">
     <title>Dimple Khattar</title>
     <style>
         * {
@@ -15,348 +15,162 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            background-color: #ffffff;
             color: #333;
-            background-color: #fafafa;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-        }
-
-        /* Header Section */
-        .header {
             text-align: center;
-            margin-bottom: 40px;
         }
 
+        /* Profile Section */
         .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #e0e0e0;
+            margin: 0 auto 30px;
+            display: block;
         }
 
         h1 {
             font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        /* Quick Links */
-        .quick-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .quick-links a {
-            padding: 8px 16px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9em;
-            transition: all 0.2s;
-        }
-
-        .quick-links a:hover {
-            background-color: #f5f5f5;
-            border-color: #999;
-        }
-
-        /* Main Navigation */
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 50px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: #666;
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 50px;
-            display: none;
-        }
-
-        section.active {
-            display: block;
-        }
-
-        section h2 {
-            font-size: 1.8em;
             margin-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        /* Bio Section */
-        .bio-text {
-            line-height: 1.8;
+        .bio {
+            font-size: 1em;
             color: #555;
-        }
-
-        .bio-text p {
-            margin-bottom: 12px;
-        }
-
-        /* Education Section */
-        .education-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .education-item:last-child {
-            border-bottom: none;
-        }
-
-        .education-item h3 {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .education-item .school {
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 3px;
-        }
-
-        .education-item .year {
-            font-size: 0.9em;
-            color: #999;
-        }
-
-        /* Projects Section */
-        .project-item {
             margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #f0f0f0;
+            line-height: 1.7;
         }
 
-        .project-item:last-child {
-            border-bottom: none;
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            font-size: 1.5em;
         }
 
-        .project-item h3 {
-            font-size: 1.1em;
-            margin-bottom: 8px;
+        .social-links a {
             color: #333;
-        }
-
-        .project-item a {
-            color: #0066cc;
             text-decoration: none;
+            transition: opacity 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
         }
 
-        .project-item a:hover {
-            text-decoration: underline;
+        .social-links a:hover {
+            opacity: 0.6;
         }
 
-        .project-item p {
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .project-tags {
+        /* Navigation Buttons */
+        .nav-buttons {
             display: flex;
-            gap: 8px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .tag {
-            display: inline-block;
-            background-color: #f0f0f0;
-            padding: 4px 10px;
-            border-radius: 3px;
-            font-size: 0.85em;
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contact-links a {
-            padding: 12px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #0066cc;
-            transition: all 0.2s;
-        }
-
-        .contact-links a:hover {
+        .nav-btn {
+            padding: 12px 28px;
             background-color: #f5f5f5;
-            border-color: #0066cc;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
         }
 
         /* Responsive */
         @media (max-width: 600px) {
             body {
-                padding: 20px 15px;
+                padding: 40px 15px;
             }
 
             h1 {
                 font-size: 2em;
             }
 
-            section h2 {
-                font-size: 1.4em;
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 20px;
             }
 
-            .nav {
+            .bio {
+                font-size: 0.95em;
+            }
+
+            .social-links {
                 gap: 15px;
+                font-size: 1.2em;
             }
 
-            .quick-links {
-                gap: 8px;
+            .nav-buttons {
+                gap: 10px;
             }
 
-            .quick-links a {
-                padding: 6px 12px;
-                font-size: 0.85em;
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="profile.jpg" alt="Dimple Khattar" class="profile-image">
-            <h1>Dimple Khattar</h1>
-            <div class="quick-links">
-                <a href="#contact">Email</a>
-                <a href="https://linkedin.com/in/dimplekhattar" target="_blank">LinkedIn</a>
-                <a href="https://github.com/dimplekhattar" target="_blank">GitHub</a>
-                <a href="resume.pdf">Resume</a>
-            </div>
+        <!-- Profile Picture -->
+        <img src="profile.jpg" alt="Dimple Khattar" class="profile-image">
+
+        <!-- Name -->
+        <h1>Dimple Khattar</h1>
+
+        <!-- Bio -->
+        <p class="bio">
+            I am a student at the University of Chicago. I am interested in economics, data science, and technology policy. I work on research projects exploring economic trends, labor markets, and the impact of technology on society.
+        </p>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="resume.pdf" title="CV">📄</a>
+            <a href="mailto:dimplekhattar@uchicago.edu" title="Email">✉️</a>
+            <a href="#" title="Location">📍</a>
+            <a href="#" title="Calendar">📅</a>
+            <a href="#" title="Home">🏠</a>
+            <a href="https://youtube.com" title="YouTube" target="_blank">▶️</a>
+            <a href="https://github.com/dimplekhattar" title="GitHub" target="_blank">🐙</a>
         </div>
 
-        <!-- Navigation -->
-        <div class="nav">
-            <a onclick="showSection('bio')">Bio</a>
-            <a onclick="showSection('education')">Education</a>
-            <a onclick="showSection('projects')">Projects</a>
-            <a onclick="showSection('resume')">Resume</a>
-            <a onclick="showSection('contact')">Contact</a>
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <a href="#projects" class="nav-btn">Projects</a>
+            <a href="#research" class="nav-btn">Research</a>
+            <a href="#writing" class="nav-btn">Writing</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+            <a href="resume.pdf" class="nav-btn">Resume</a>
         </div>
-
-        <!-- Bio Section -->
-        <section id="bio" class="active">
-            <h2>About</h2>
-            <div class="bio-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Degree Name</h3>
-                <div class="school">University Name</div>
-                <div class="year">2020 – 2024</div>
-            </div>
-            <div class="education-item">
-                <h3>Degree Name</h3>
-                <div class="school">University Name</div>
-                <div class="year">2016 – 2020</div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-item">
-                <h3><a href="#" target="_blank">Project Title One</a></h3>
-                <p>Brief description of the project. What problem does it solve? What technologies were used?</p>
-                <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">React</span>
-                    <span class="tag">API</span>
-                </div>
-            </div>
-            <div class="project-item">
-                <h3><a href="#" target="_blank">Project Title Two</a></h3>
-                <p>Brief description of the project. What problem does it solve? What technologies were used?</p>
-                <div class="project-tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Database</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resume Section -->
-        <section id="resume">
-            <h2>Resume</h2>
-            <p>View or download my full resume:</p>
-            <div class="quick-links" style="margin-top: 20px;">
-                <a href="resume.pdf">Download PDF</a>
-                <a href="#contact">Request Full Version</a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <div class="contact-links">
-                <a href="mailto:dimplekhattar@uchicago.edu">📧 Email: dimplekhattar@uchicago.edu</a>
-                <a href="https://linkedin.com/in/dimplekhattar" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/dimplekhattar" target="_blank">🐙 GitHub</a>
-            </div>
-        </section>
     </div>
-
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Show selected section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-        }
-    </script>
 </body>
 </html>
