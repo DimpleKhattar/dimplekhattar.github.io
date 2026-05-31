@@ -82,7 +82,7 @@
 		}
 
 		.content-wrapper {
-			max-width: 1000px;
+			max-width: 1200px;
 			margin: 0 auto;
 			padding: 60px 60px;
 		}
@@ -361,11 +361,13 @@
 			color: #999;
 		}
 
+		/* Figure Grid - Improved */
 		.figure-grid {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 24px;
-			margin-top: 28px;
+			grid-template-columns: 1fr;
+			gap: 40px;
+			margin-top: 32px;
+			margin-bottom: 40px;
 		}
 
 		.fig-card {
@@ -377,13 +379,14 @@
 
 		.fig-card img {
 			width: 100%;
-			height: 220px;
-			object-fit: cover;
+			height: auto;
 			display: block;
+			max-height: 500px;
+			object-fit: contain;
 		}
 
 		.fig-card figcaption {
-			padding: 16px;
+			padding: 20px;
 			font-size: 0.85em;
 			color: #666;
 			line-height: 1.6;
@@ -556,6 +559,7 @@
 
 			.content-wrapper {
 				padding: 40px 40px;
+				max-width: 100%;
 			}
 
 			h1 {
@@ -573,7 +577,6 @@
 			.grid-2,
 			.grid-3,
 			.findings-grid,
-			.figure-grid,
 			.resource-row {
 				grid-template-columns: 1fr;
 			}
@@ -593,6 +596,10 @@
 
 			.navbar-icons {
 				gap: 16px;
+			}
+
+			.figure-grid {
+				grid-template-columns: 1fr;
 			}
 		}
 
@@ -615,6 +622,14 @@
 
 			.subtitle {
 				font-size: 0.9em;
+			}
+
+			.figure-grid {
+				gap: 24px;
+			}
+
+			.fig-card img {
+				max-height: 350px;
 			}
 		}
 	</style>
@@ -666,7 +681,7 @@
 			<!-- Masthead with Header and Stat Panel -->
 			<div class="masthead">
 				<div>
-					<div class="kicker">Energy Finance · Real Options · ERCOT</div>
+					<div class="kicker">Energy Finance . Real Options . ERCOT</div>
 					<h1>AI Data Center Power Strategy in Deregulated Electricity Markets</h1>
 					<p class="subtitle">
 						A quantitative operating strategy for two 100-MW AI data centers in ERCOT's Houston and West load zones covering generator dispatch, renewable intermittency, battery valuation, and machine learning optimal scheduling.
@@ -710,18 +725,18 @@
 				<span class="tag hi">LSMC</span>
 				<span class="tag">Real Options</span>
 				<span class="tag">Energy Finance</span>
-				<span class="tag">Python · R · Excel</span>
+				<span class="tag">Python . R . Excel</span>
 			</div>
 
 			<!-- Section 1: The Problem -->
 			<section>
-				<div class="section-label">01 — The Problem</div>
+				<div class="section-label">01 . The Problem</div>
 				<h2>A power procurement problem that turned out not to be one</h2>
 
 				<div class="grid-2">
 					<div>
 						<p>
-							An operator runs two 100-MW AI data centers in ERCOT — one in Houston, one in West Texas.
+							An operator runs two 100-MW AI data centers in ERCOT. one in Houston, one in West Texas.
 							Each site has 80 MW of compute capacity. At GPT-5.4 Pro pricing, each MW generates
 							<strong>$5,000,000 per day</strong>. Total six-month gross revenue: <strong>$127.3B</strong>.
 						</p>
@@ -777,7 +792,7 @@
 
 			<!-- Section 2: Methods -->
 			<section>
-				<div class="section-label">02 — Methods</div>
+				<div class="section-label">02 . Methods</div>
 				<h2>Six analytical modules</h2>
 				<p>Each module addresses a distinct operating decision. The outputs feed into each other through an integrated framework.</p>
 
@@ -804,7 +819,7 @@
 						<h4>Intermittency</h4>
 						<ul>
 							<li>ERCOT generation data</li>
-							<li>r = −0.80 renewables vs LMP</li>
+							<li>r = -0.80 renewables vs LMP</li>
 							<li>6-regime time-of-day</li>
 							<li>Outage modeling</li>
 						</ul>
@@ -831,7 +846,7 @@
 						<h4>LSMC Training</h4>
 						<ul>
 							<li>Backward induction</li>
-							<li>West boundary: −$0.42/MWh</li>
+							<li>West boundary: -$0.42/MWh</li>
 							<li>Houston peak: $121/MWh</li>
 							<li>+$2.13M vs baseline</li>
 						</ul>
@@ -841,7 +856,7 @@
 
 			<!-- Section 3: Key Findings -->
 			<section>
-				<div class="section-label">03 — Key Findings</div>
+				<div class="section-label">03 . Key Findings</div>
 				<h2>What the data showed</h2>
 
 				<div class="findings-grid">
@@ -850,7 +865,7 @@
 						<p>
 							As Henry Hub fell $0.86/MMBtu over three months, IMHR improved from 6,200 to 13,549 BTU/kWh.
 							In-the-money hours rose from 13.1% to 57.4%. The tolling agreement is worth
-							$3.63M–$6.18M as a Bachelier call strip.
+							$3.63M-$6.18M as a Bachelier call strip.
 						</p>
 						<span class="number">57.4%<small>Apr in-money</small></span>
 					</div>
@@ -865,10 +880,10 @@
 					<div class="finding-card" data-n="Finding 03">
 						<h3>LSMC training schedule earns money while training</h3>
 						<p>
-							The optimal West exercise boundary is −$0.42/MWh — train only when price is zero.
-							Average daily power cost becomes negative (−$372/day). The grid pays the operator to train.
+							The optimal West exercise boundary is -$0.42/MWh. train only when price is zero.
+							Average daily power cost becomes negative (-$372/day). The grid pays the operator to train.
 						</p>
-						<span class="number">−$372<small>/day avg power cost</small></span>
+						<span class="number">-$372<small>/day avg power cost</small></span>
 					</div>
 					<div class="finding-card" data-n="Finding 04">
 						<h3>Virtual BESS wins; physical BESS fails</h3>
@@ -882,8 +897,8 @@
 					<div class="finding-card" data-n="Finding 05">
 						<h3>Grid procurement dominates option value</h3>
 						<p>
-							Of the $13.3M total real option value, $11.3M comes from grid procurement —
-							the value of not being locked into gas at $58.33/MWh.
+							Of the $13.3M total real option value, $11.3M comes from grid procurement.
+							The value of not being locked into gas at $58.33/MWh.
 							Generator value is in the right to dispatch during spikes.
 						</p>
 						<span class="number">$11.3M<small>grid option value</small></span>
@@ -894,40 +909,40 @@
 							Under EPA SCC ($51/tonne), clean breakeven LMP rises to $84.06/MWh.
 							In-the-money hours fall from 33.4% to ~3.5%. HRCO strip collapses by over 90%.
 						</p>
-						<span class="number">−90%<small>strip value under carbon</small></span>
+						<span class="number">-90%<small>strip value under carbon</small></span>
 					</div>
 				</div>
 			</section>
 
 			<!-- Section 4: Operating Policy -->
 			<section>
-				<div class="section-label">04 — Operating Policy</div>
+				<div class="section-label">04 . Operating Policy</div>
 				<h2>Five decisions, no new capital required</h2>
-				<p style="margin-bottom: 28px;">The optimal strategy adds $18.5M above baseline through scheduling rules and financial contracts — not hardware.</p>
+				<p style="margin-bottom: 28px;">The optimal strategy adds $18.5M above baseline through scheduling rules and financial contracts. not hardware.</p>
 
 				<div>
 					<div class="rec-row">
 						<span class="rec-action">LSMC Schedule</span>
-						<p style="margin-bottom: 0;">Run all West training 10:00–16:00 (solar trough). Houston overnight cheap hours only. Software change, zero capex.</p>
+						<p style="margin-bottom: 0;">Run all West training 10:00-16:00 (solar trough). Houston overnight cheap hours only. Software change, zero capex.</p>
 						<span class="rec-value">+$2.13M</span>
 					</div>
 					<div class="rec-row">
 						<span class="rec-action">NG Dispatch Rule</span>
-						<p style="margin-bottom: 0;">Grid default. Exercise generator when IMHR &gt; 9,500. Automate hourly. Hold agreement if cost &lt; $6.18M.</p>
+						<p style="margin-bottom: 0;">Grid default. Exercise generator when IMHR > 9,500. Automate hourly. Hold agreement if cost < $6.18M.</p>
 						<span class="rec-value">+$3.89M</span>
 					</div>
 					<div class="rec-row">
 						<span class="rec-action">West Battery Swap</span>
-						<p style="margin-bottom: 0;">Enter TBx swap, fixed fee &lt; $140.18/MWh. 40 MW, 183 days. No capital outlay.</p>
+						<p style="margin-bottom: 0;">Enter TBx swap, fixed fee < $140.18/MWh. 40 MW, 183 days. No capital outlay.</p>
 						<span class="rec-value">+$205K</span>
 					</div>
 					<div class="rec-row">
-						<span class="rec-action">Physical BESS — Hold</span>
+						<span class="rec-action">Physical BESS. Hold</span>
 						<p style="margin-bottom: 0;">Retain for outage resilience only. Not viable for arbitrage. Review if TB2 exceeds $300/MWh for a full quarter.</p>
 						<span class="rec-value">Strategic</span>
 					</div>
 					<div class="rec-row">
-						<span class="rec-action">Waste Heat — Defer</span>
+						<span class="rec-action">Waste Heat. Defer</span>
 						<p style="margin-bottom: 0;">Rankine cycle breakeven capex below cost at current LMPs. Revisit if Houston LMP sustains above $80/MWh.</p>
 						<span class="rec-value">Not now</span>
 					</div>
@@ -936,7 +951,7 @@
 
 			<!-- Section 5: Policy -->
 			<section>
-				<div class="section-label">05 — Policy Implication</div>
+				<div class="section-label">05 . Policy Implication</div>
 				<h2>The deeper question: flexible demand as grid infrastructure</h2>
 
 				<div class="grid-2">
@@ -957,7 +972,7 @@
 						Time-of-use rates do not replicate the hourly signal granularity that makes this strategy possible.
 					</p>
 					<p>
-						As AI electricity demand scales — analysts project 50–100 GW by 2030 — the case for extending competitive market access
+						As AI electricity demand scales. analysts project 50-100 GW by 2030. the case for extending competitive market access
 						to large flexible loads in regulated territories deserves serious attention. The infrastructure is there. The pricing mechanism is not.
 					</p>
 				</div>
@@ -971,24 +986,24 @@
 
 			<!-- Section 6: Figures -->
 			<section>
-				<div class="section-label">06 — Selected Figures</div>
+				<div class="section-label">06 . Selected Figures</div>
 				<h2>Key charts from the analysis</h2>
 
 				<div class="figure-grid">
 					<figure class="fig-card">
 						<img src="figures/LSMC_OptimalTraining_ExerciseBoundary_HourlyThresholds_HOU_WEST_Chart.png"
-							 alt="LSMC Exercise Boundary — Houston and West sites by hour of day">
+							 alt="LSMC Exercise Boundary . Houston and West sites by hour of day">
 						<figcaption>
 							<strong>LSMC Exercise Boundaries.</strong>
-							West boundary flat at −$0.42/MWh — train when power is free.
+							West boundary flat at -$0.42/MWh. train when power is free. Houston threshold peaks at $121/MWh during evening hours.
 						</figcaption>
 					</figure>
 					<figure class="fig-card">
 						<img src="figures/LSMC_OptimalTraining_RevenueImprovement_OptimalVsNaive_Comparison_Chart.png"
-							 alt="LSMC revenue improvement — optimal vs naive schedule">
+							 alt="LSMC revenue improvement . optimal vs naive schedule">
 						<figcaption>
 							<strong>Scheduling Gain: $2.13M.</strong>
-							Daily improvement averaging $11,714/day.
+							Daily improvement averaging $11,714/day. The optimal policy generates consistent gains across all months, with West site achieving negative average power cost.
 						</figcaption>
 					</figure>
 				</div>
@@ -996,7 +1011,7 @@
 
 			<!-- Section 7: Resources -->
 			<section>
-				<div class="section-label">07 — Resources</div>
+				<div class="section-label">07 . Resources</div>
 				<h2>Code and models</h2>
 
 				<div class="resource-row">
@@ -1007,8 +1022,8 @@
 					</a>
 					<a class="resource-card" href="https://uchicagoedu-my.sharepoint.com/:x:/g/personal/dimplekhattar_uchicago_edu/IQAxAitDhqivRKVQkELMNSJjAWAQ8LfvDOY00tiF-WcHtuU" target="_blank" rel="noopener">
 						<strong>Excel revenue model</strong>
-						<span>16-sheet model — inputs, power cost, battery valuation, real options, IMHR analysis</span>
-						<span class="resource-link">OneDrive — view or download</span>
+						<span>16-sheet model: inputs, power cost, battery valuation, real options, IMHR analysis</span>
+						<span class="resource-link">OneDrive . view or download</span>
 					</a>
 				</div>
 			</section>
@@ -1019,8 +1034,8 @@
 					This project was completed in collaboration with
 					<strong>Brenda Valencia</strong>.
 				</p>
-				<p>Financing the Grid · University of Chicago · Spring 2026</p>
-				<p class="footer-stack">Python · R · Excel (16-sheet model) · 2,135 hourly ERCOT observations</p>
+				<p>Financing the Grid . University of Chicago . Spring 2026</p>
+				<p class="footer-stack">Python . R . Excel (16-sheet model) . 2,135 hourly ERCOT observations</p>
 			</footer>
 		</div>
 	</main>
