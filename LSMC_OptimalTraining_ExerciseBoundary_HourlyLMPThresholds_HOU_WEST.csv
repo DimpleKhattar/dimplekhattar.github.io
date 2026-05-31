@@ -1,0 +1,25 @@
+Hour_CST,HOU_Threshold_$/MWh,WEST_Threshold_$/MWh,R2_HOU,R2_WEST,Interpretation_HOU,Interpretation_WEST
+00:00,74.84,-0.42,0.0625,0.321,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+01:00,71.15,-0.42,0.068,0.3222,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+02:00,68.89,-0.42,0.0712,0.3347,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+03:00,69.35,-0.42,0.0701,0.3325,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+04:00,69.33,-0.42,0.0708,0.3307,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+05:00,77.42,-0.42,0.0595,0.3002,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+06:00,82.0,-0.42,0.0549,0.2853,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+07:00,81.81,-0.42,0.0541,0.316,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+08:00,60.95,-0.42,0.0849,0.3857,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+09:00,50.34,-0.42,0.11,0.4288,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+10:00,49.84,-0.42,0.1109,0.4333,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+11:00,50.98,-0.42,0.1093,0.4875,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+12:00,50.21,-0.42,0.1113,0.472,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+13:00,54.26,-0.42,0.0992,0.444,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+14:00,59.21,-0.42,0.0866,0.4466,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+15:00,62.68,-0.42,0.0812,0.4429,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+16:00,67.33,-0.42,0.0732,0.4319,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+17:00,85.65,-0.42,0.0503,0.343,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+18:00,115.87,-0.42,0.0303,0.2684,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+19:00,120.51,-0.42,0.0279,0.2394,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+20:00,120.08,-0.42,0.0289,0.2447,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+21:00,108.83,-0.42,0.0336,0.272,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+22:00,94.25,-0.42,0.0439,0.3086,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
+23:00,78.31,-0.42,0.0584,0.3553,Run training if HOU LMP below this threshold,Run training if WEST LMP below this threshold
