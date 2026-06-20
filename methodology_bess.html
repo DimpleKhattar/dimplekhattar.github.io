@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battery Valuation — TB-x Swap | Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:#F5F2ED;border-bottom:1px solid #eee;z-index:100;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.1em;font-weight:400;color:#333;text-decoration:none;}
+.navbar a.back{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#666;text-decoration:none;}
+.navbar a.back:hover{color:#333;}
+.content-wrapper{max-width:1100px;margin:0 auto;padding:60px 60px;}
+.back-link{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.14em;text-transform:uppercase;color:#999;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:40px;}
+.back-link:hover{color:#333;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:16px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:40px;max-width:680px;line-height:1.7;}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68em;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:20px;}
+h2{font-family:'DM Serif Display',serif;font-size:1.45em;font-weight:400;margin-bottom:20px;margin-top:44px;}
+h3{font-family:'DM Serif Display',serif;font-size:1.05em;font-weight:400;margin-bottom:10px;margin-top:20px;}
+p{margin-bottom:16px;color:#555;line-height:1.8;font-size:0.94em;}
+p strong{font-weight:500;color:#333;}
+section{margin-bottom:48px;}
+.eq-box{background:#1e1e2e;border-radius:3px;padding:16px 20px;font-family:'DM Mono',monospace;font-size:0.75em;color:#a0c4ff;margin:14px 0;line-height:2.1;overflow-x:auto;}
+.eq-box .eq-label{font-size:0.65em;letter-spacing:0.15em;text-transform:uppercase;color:#e8a020;display:block;margin-bottom:6px;}
+.eq-box .hl-g{color:#86efac;} .eq-box .hl-y{color:#fbbf24;} .eq-box .hl-w{color:#fff;} .eq-box .hl-m{color:#c4b5fd;} .eq-box .hl-r{color:#fca5a5;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;border:1px solid #ddd;border-radius:2px;overflow:hidden;margin:20px 0;}
+.stat-cell{background:white;padding:16px 18px;}
+.stat-cell .sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#999;margin-bottom:5px;}
+.stat-cell .sv{font-family:'DM Mono',monospace;font-size:1.1em;font-weight:500;color:#333;}
+.stat-cell .sv.g{color:#1a7a4a;} .stat-cell .sv.r{color:#b93030;}
+.card{padding:20px;border:1px solid #eee;border-radius:2px;background:white;margin-bottom:16px;}
+.card h4{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#333;margin-bottom:10px;font-weight:500;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
+.callout{border-left:3px solid #333;padding:16px 20px;background:rgba(0,0,0,0.02);border-radius:0 2px 2px 0;margin:20px 0;}
+.callout p{margin-bottom:0;font-size:0.88em;}
+.callout.g{border-left-color:#1a7a4a;background:#f0faf4;}
+.callout.r{border-left-color:#b93030;background:#fef8f8;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.87em;}
+thead tr{background:#2c2c2c;color:white;}
+thead th{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:500;}
+tbody td{padding:10px 14px;border-bottom:1px solid #eee;color:#444;}
+tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin:20px 0;}
+.vs-mid{text-align:center;font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.12em;text-transform:uppercase;color:#999;padding-top:24px;}
+.verdict-g{background:#edfaf3;border:1px solid #c4ead6;border-radius:2px;padding:12px 16px;font-family:'DM Mono',monospace;font-size:0.76em;color:#1a7a4a;text-align:center;margin-top:12px;}
+.verdict-r{background:#fef0f0;border:1px solid #f0c4c4;border-radius:2px;padding:12px 16px;font-family:'DM Mono',monospace;font-size:0.76em;color:#b93030;text-align:center;margin-top:12px;}
+.footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
+@media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.stat-grid,.vs-grid{grid-template-columns:1fr;}.vs-mid{display:none;}}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="navbar-title" href="grid_financing.html">Dimple Khattar</a>
+  <a class="back" href="grid_financing.html">&#x2190; Back to project</a>
+</div>
+<main>
+<div class="content-wrapper">
+  <a class="back-link" href="grid_financing.html">&#x2190; Financing the Grid</a>
+
+  <div class="kicker">Module 05 . Battery Valuation</div>
+  <h1>TB-x Swap Structure &amp; BESS Economics</h1>
+  <p class="subtitle">How we valued battery energy storage at the West Texas site using the TB-x (Time-Block spread) swap framework, compared physical vs virtual BESS economics, and determined that the virtual swap dominates while physical BESS serves only as outage insurance.</p>
+
+  <!-- WHAT IS IT -->
+  <section>
+    <div class="section-label">What is it?</div>
+    <h2>TB-x swaps and daily price spreads</h2>
+    <p>A TB-x swap (Time-Block spread swap) settles on the difference between peak and off-peak electricity prices within a day. The x denotes the number of price blocks used. Physical BESS is the hardware implementation of the same arbitrage (charge at low prices, discharge at high) but carries capital cost, efficiency losses, and a defined degradation curve.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h4>TB1: single daily spread</h4>
+        <p style="font-size:0.86em;">Daily max minus daily min LMP. The theoretical maximum if you could charge at the exact cheapest hour and discharge at the most expensive. A performance benchmark, not achievable without perfect foresight.</p>
+        <div class="eq-box" style="margin-top:12px;">
+          <span class="hl-w">TB1 = max(LMP_t) &#x2212; min(LMP_t) &nbsp;for t in day d</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>TB2: two-block spread</h4>
+        <p style="font-size:0.86em;">Sum of top-2 prices minus sum of bottom-2 prices. More realistic: captures two charge and two discharge cycles per day. This is the settlement basis for the virtual swap and most physical BESS P&amp;L modelling.</p>
+        <div class="eq-box" style="margin-top:12px;">
+          <span class="hl-w">TB2 = (P_max1 + P_max2) &#x2212; (P_min1 + P_min2)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT FITS -->
+  <section>
+    <div class="section-label">How does it fit here?</div>
+    <h2>Physical vs virtual: the key comparison</h2>
+    <div class="vs-grid">
+      <div>
+        <div class="card">
+          <h4>Physical BESS</h4>
+          <p style="font-size:0.86em;">Own or lease a 40 MWh battery. Charge during negative-price hours, discharge during spikes. Captures spread in real power flows. Capital cost: $90M. Round-trip efficiency loss: 8%. Degradation baked into LCOS.</p>
+          <p style="font-size:0.86em;">Unique benefit: physical backup power during grid outage; no financial instrument replicates this.</p>
+        </div>
+        <div class="verdict-r">Not viable for arbitrage at current spreads</div>
+      </div>
+      <div class="vs-mid">vs</div>
+      <div>
+        <div class="card">
+          <h4>Virtual TBx Swap</h4>
+          <p style="font-size:0.86em;">Financial contract: receive TB2 settlement daily, pay a fixed fee per MWh. No hardware, no efficiency loss, no degradation, zero capital outlay. Counterparty assumes the physical scheduling complexity.</p>
+          <p style="font-size:0.86em;">Limitation: no physical power delivery; it does not protect against outage.</p>
+        </div>
+        <div class="verdict-g">+$204,789 net over 6 months at West</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORKED -->
+  <section>
+    <div class="section-label">How did we work on it?</div>
+    <h2>LCOS calculation and breakeven analysis</h2>
+
+    <h3>Step 1: Levelized Cost of Storage (LCOS)</h3>
+    <p>LCOS converts the upfront capital and operating cost of the physical battery into a per-MWh figure that can be compared directly to the spread it captures:</p>
+    <div class="eq-box">
+      <span class="eq-label">LCOS formula</span>
+      <span class="hl-w">LCOS = Total lifetime cost / Total lifetime MWh discharged</span><br>
+      <span class="hl-g">= $90M / (40 MWh &#xd7; 2 cycles/day &#xd7; 0.92 efficiency &#xd7; 365 days &#xd7; 10 yr)</span><br>
+      <span class="hl-y">= $90M / 728,640 MWh = <strong>$123.52/MWh</strong></span>
+    </div>
+
+    <h3>Step 2: Net settlement per MWh (physical)</h3>
+    <p>The 8% round-trip efficiency loss means the battery only delivers 0.92 MWh of discharge per MWh charged. Net capture per MWh:</p>
+    <div class="eq-box">
+      <span class="eq-label">Physical BESS net settlement</span>
+      <span class="hl-w">Net = (TB2 &#xd7; 0.92) &#x2212; LCOS</span><br>
+      <span class="hl-g">At mean West TB2 = $152.05/MWh:</span><br>
+      <span class="hl-r">Net = ($152.05 &#xd7; 0.92) &#x2212; $123.52 = $139.89 &#x2212; $123.52 = +$16.37/MWh &nbsp;(marginal positive)</span><br>
+      <span style="color:rgba(160,196,255,0.6);font-size:0.85em;">But full capital breakeven requires spread of $445.47/MWh, far above the historical mean</span>
+    </div>
+
+    <h3>Step 3: Virtual swap 6-month P&amp;L projection</h3>
+    <div class="eq-box">
+      <span class="eq-label">Virtual swap P&L (West, 40 MW, 183 days)</span>
+      <span class="hl-w">Gross = &#x3a3;_d [TB2_d &#xd7; MW] = $152.05 &#xd7; 40 &#xd7; 183 = $1,114,206</span><br>
+      <span class="hl-r">Less fixed fee = $140.18 &#xd7; 40 &#xd7; 183 = $1,025,718 &nbsp;(max fee scenario)</span><br>
+      <span class="hl-g">Net at max fee = +$88,488 &nbsp;| &nbsp;Net at $120/MWh fee = +$204,789</span>
+    </div>
+
+    <h3>Step 4: Houston site comparison</h3>
+    <p>Houston TB2 spreads are narrower than West because the price distribution is less skewed, with fewer deeply negative hours and fewer extreme spike hours. Houston physical BESS breakeven exceeds West. The West site is the better candidate for either physical or virtual BESS. Since the physical case is borderline at West, Houston physical BESS is clearly not viable.</p>
+  </section>
+
+  <!-- FINDINGS -->
+  <section>
+    <div class="section-label">Findings</div>
+    <h2>Summary numbers</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="sl">Mean West TB2</div>
+        <div class="sv">$152.05/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">LCOS (physical)</div>
+        <div class="sv r">$123.52/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Full capital breakeven</div>
+        <div class="sv r">$445.47/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Virtual swap 6M net</div>
+        <div class="sv g">+$204,789</div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Physical BESS</th><th>Virtual TBx Swap</th><th>Better</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Capital required</td><td>$90M</td><td>$0</td><td>Virtual</td></tr>
+        <tr><td>Round-trip efficiency</td><td>92%</td><td>100% (financial)</td><td>Virtual</td></tr>
+        <tr><td>6-month P&amp;L</td><td>Marginal positive (below full breakeven)</td><td>+$204K</td><td>Virtual</td></tr>
+        <tr><td>Grid outage backup</td><td>&#x2714; Yes</td><td>&#x2718; No</td><td>Physical</td></tr>
+        <tr><td>Operational complexity</td><td>High (state-of-charge mgmt)</td><td>None</td><td>Virtual</td></tr>
+        <tr><td>Viable as pure arbitrage?</td><td>No (breakeven $445 vs $152 spread)</td><td>Yes</td><td>Virtual</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- IMPLICATIONS -->
+  <section>
+    <div class="section-label">Implications</div>
+    <h2>What battery economics mean for the strategy</h2>
+    <div class="grid-2">
+      <div>
+        <p>Do not build physical BESS for arbitrage. At $445/MWh breakeven versus $152/MWh historical mean spread, physical BESS requires a 3&#xd7; improvement in daily spread to pencil out. ERCOT West data shows no sustained period where this has held. The business case does not exist at current spreads.</p>
+        <p>Enter the virtual TBx swap. At a fixed fee below $140.18/MWh, the virtual swap is positive NPV. Negotiate a fixed fee of $100&#x2013;$120/MWh. This generates $204K&#x2013;$318K net over 6 months with zero capital risk and zero operational overhead.</p>
+      </div>
+      <div>
+        <p>Retain existing physical BESS as outage insurance only. If a battery is already installed, keep it. Not for arbitrage, but for resilience. The NBB-SO model shows that wind_speed dominates both outage frequency and overdispersion at West. The same conditions that create negative prices (high wind) create the highest risk of grid disconnection. A charged battery provides ride-through capability during these events.</p>
+        <p>Review trigger: TB2 > $300/MWh sustained for one quarter. If renewable over-penetration in West ERCOT deepens spreads further and TB2 sustains above $300/MWh, revisit the physical arbitrage case. Set this as a quarterly monitoring threshold.</p>
+      </div>
+    </div>
+    <div class="callout g">
+      <p>The virtual swap captures the financial value of the price spread without requiring the physical battery to be in the right state of charge at the right hour. It removes operational complexity and capital burden while preserving the economic upside. The physical battery is kept for a different purpose: actual electrons during an outage.</p>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="footer">
+  <p>This project was done in collaboration with Brenda Valencia.</p>
+</footer>
+</body>
+</html>

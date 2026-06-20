@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSMC Optimal Training | Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:#F5F2ED;border-bottom:1px solid #eee;z-index:100;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.1em;font-weight:400;color:#333;text-decoration:none;}
+.navbar a.back{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#666;text-decoration:none;}
+.navbar a.back:hover{color:#333;}
+.content-wrapper{max-width:1100px;margin:0 auto;padding:60px 60px;}
+.back-link{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.14em;text-transform:uppercase;color:#999;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:40px;}
+.back-link:hover{color:#333;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:16px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:40px;max-width:680px;line-height:1.7;}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68em;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:20px;}
+h2{font-family:'DM Serif Display',serif;font-size:1.45em;font-weight:400;margin-bottom:20px;margin-top:44px;}
+h3{font-family:'DM Serif Display',serif;font-size:1.05em;font-weight:400;margin-bottom:10px;margin-top:20px;}
+p{margin-bottom:16px;color:#555;line-height:1.8;font-size:0.94em;}
+p strong{font-weight:500;color:#333;}
+section{margin-bottom:48px;}
+.eq-box{background:#1e1e2e;border-radius:3px;padding:16px 20px;font-family:'DM Mono',monospace;font-size:0.75em;color:#a0c4ff;margin:14px 0;line-height:2.1;overflow-x:auto;}
+.eq-box .eq-label{font-size:0.65em;letter-spacing:0.15em;text-transform:uppercase;color:#e8a020;display:block;margin-bottom:6px;}
+.eq-box .hl-g{color:#86efac;} .eq-box .hl-y{color:#fbbf24;} .eq-box .hl-w{color:#fff;} .eq-box .hl-m{color:#c4b5fd;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;border:1px solid #ddd;border-radius:2px;overflow:hidden;margin:20px 0;}
+.stat-cell{background:white;padding:16px 18px;}
+.stat-cell .sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#999;margin-bottom:5px;}
+.stat-cell .sv{font-family:'DM Mono',monospace;font-size:1.1em;font-weight:500;color:#333;}
+.stat-cell .sv.g{color:#1a7a4a;}
+.card{padding:20px;border:1px solid #eee;border-radius:2px;background:white;margin-bottom:16px;}
+.card h4{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#333;margin-bottom:10px;font-weight:500;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
+.callout{border-left:3px solid #333;padding:16px 20px;background:rgba(0,0,0,0.02);border-radius:0 2px 2px 0;margin:20px 0;}
+.callout p{margin-bottom:0;font-size:0.88em;}
+.algo-step{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #eee;align-items:start;}
+.algo-step:last-child{border-bottom:none;}
+.algo-n{width:32px;height:32px;background:#2c2c2c;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:0.72em;font-weight:500;flex-shrink:0;}
+.algo-body{font-size:0.88em;color:#444;line-height:1.7;}
+.algo-body strong{color:#333;font-weight:500;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.87em;}
+thead tr{background:#2c2c2c;color:white;}
+thead th{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:500;}
+tbody td{padding:10px 14px;border-bottom:1px solid #eee;color:#444;}
+tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
+.boundary-row{display:grid;grid-template-columns:80px 1fr 160px;gap:16px;padding:10px 0;border-bottom:1px solid #eee;align-items:center;}
+.boundary-row:last-child{border-bottom:none;}
+.bh{font-family:'DM Mono',monospace;font-size:0.76em;font-weight:500;color:#333;}
+.bv{font-family:'DM Mono',monospace;font-size:0.78em;text-align:right;}
+.bv.w{color:#1a7a4a;} .bv.h{color:#664d2a;}
+.footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
+@media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.stat-grid{grid-template-columns:1fr;}.boundary-row{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="navbar-title" href="grid_financing.html">Dimple Khattar</a>
+  <a class="back" href="grid_financing.html">&#x2190; Back to project</a>
+</div>
+<main>
+<div class="content-wrapper">
+  <a class="back-link" href="grid_financing.html">&#x2190; Financing the Grid</a>
+
+  <div class="kicker">Module 06 . LSMC Training</div>
+  <h1>Least Squares Monte Carlo: Optimal Training Schedule</h1>
+  <p class="subtitle">How we applied Longstaff-Schwartz backward induction to find the optimal hourly decision policy for AI training workload scheduling, turning the power price signal into a +$2.13M gain over a naive 24/7 baseline.</p>
+
+  <section>
+    <div class="section-label">What is it?</div>
+    <h2>Least Squares Monte Carlo (LSMC)</h2>
+    <p>LSMC (Longstaff &amp; Schwartz, 2001) is an algorithm originally developed for valuing American options (financial instruments that can be exercised at any time before expiry). The core insight is that the optimal exercise decision at each time step requires knowing the expected future value of waiting, which cannot be observed but can be estimated from simulated price paths via ordinary least squares regression.</p>
+    <p>In our context, "exercising" means running AI training at a given hour, consuming power at the current LMP. The alternative is "waiting": deferring training to a future hour that may have cheaper (or negative) LMP. The LSMC algorithm finds the exact LMP threshold below which it is worth training now vs waiting.</p>
+    <div class="eq-box">
+      <span class="eq-label">Optimal stopping rule</span>
+      <span class="hl-w">V(x, t) = max { exercise_value(x, t), &nbsp; E_t[V(x, t+1) | x] }</span><br>
+      <span class="hl-g">exercise_value(x, t) = &#x2212;LMP(t) &#xd7; MWh_training &nbsp;(negative cost = positive when LMP &lt; 0)</span><br>
+      <span class="hl-y">E_t[V(x, t+1) | x] &#x2248; &#x3b2;&#x2080; + &#x3b2;&#x2081;&#xb7;LMP + &#x3b2;&#x2082;&#xb7;LMP&#xb2; &nbsp;(OLS on basis functions)</span><br>
+      <span class="hl-m">Backward induction: start at T = 183, work backwards to t = 0</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How does it fit here?</div>
+    <h2>Training as an American option</h2>
+    <p>The AI operator must complete a minimum of 500 MWh of GPU training per day per site (model update cycles). This training can happen at any hour within the day, which creates a scheduling option. The option has the structure of:</p>
+    <div class="grid-2">
+      <div class="card">
+        <h4>The training flexibility option</h4>
+        <p style="font-size:0.86em;">Each day, the operator holds 500 MWh of flexible demand that can be scheduled in any combination of hours. This is an American-style option: exercise (train) when the current LMP is below the optimal threshold, or wait for a cheaper hour.</p>
+        <p style="font-size:0.86em;">Unlike a financial option, there is a deadline: training must complete within the 24-hour window. LSMC handles this constraint via backward induction from T=24.</p>
+      </div>
+      <div class="card">
+        <h4>Why not just train at cheapest hour?</h4>
+        <p style="font-size:0.86em;">A greedy policy (always wait for the daily minimum) requires perfect foresight about what the daily minimum will be. Ex ante, the operator does not know whether 10:00 is the cheapest or whether 14:00 will be cheaper. LSMC builds an optimal forward-looking policy from simulated futures, accounting for this uncertainty.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How did we work on it?</div>
+    <h2>The algorithm: five steps</h2>
+
+    <div style="background:white;border:1px solid #eee;border-radius:2px;padding:20px;margin:16px 0;">
+      <div class="algo-step">
+        <div class="algo-n">1</div>
+        <div class="algo-body">Generate 10,000 GBM price paths. Using calibrated parameters (&#x3c3;_HOU = 46.3%/yr, &#x3c3;_WEST = 62.0%/yr), simulate 10,000 hourly LMP paths for each site over the 183-day horizon. These are the Monte Carlo scenarios over which the optimal policy is computed.</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-n">2</div>
+        <div class="algo-body">Compute exercise values at each node. For every hour t on every path s, calculate the immediate value of training: exercise_value(s,t) = &#x2212;LMP(s,t) &#xd7; MWh_training. Negative when LMP is positive (training costs money); positive when LMP is negative (training is paid for).</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-n">3</div>
+        <div class="algo-body">Backward induction from T = 183. At the terminal hour, the continuation value is zero (no future hours). Moving backwards hour by hour: regress the continuation values from t+1 against basis functions of LMP(t) using OLS. The fitted values are the estimated continuation values E_t[V(x,t+1)|x].</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-n">4</div>
+        <div class="algo-body">Compare and decide. At each hour and path: if exercise_value &gt; estimated continuation value, train now. Otherwise wait. Record the exercise decision for every path-hour combination. The boundary between exercise and continue is the exercise boundary &#x3b8;*(h).</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-n">5</div>
+        <div class="algo-body">Compute policy value. Average the total training cost across all 10,000 paths under the optimal policy. Compare to the naive baseline (train uniformly each hour). The difference is the LSMC scheduling gain: +$2.13M over 6 months.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Findings</div>
+    <h2>Exercise boundaries and gains</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="sl">West boundary</div>
+        <div class="sv g">&#x2212;$0.42/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">HOU peak boundary</div>
+        <div class="sv">$121/MWh (19&#x2013;21h)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">West avg daily cost</div>
+        <div class="sv g">&#x2212;$372/day</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Total gain vs naive</div>
+        <div class="sv g">+$2.13M</div>
+      </div>
+    </div>
+
+    <h3>Hourly exercise boundaries (selected hours)</h3>
+    <div style="background:white;border:1px solid #eee;border-radius:2px;padding:20px;margin:16px 0;">
+      <div class="boundary-row" style="font-family:'DM Mono',monospace;font-size:0.66em;letter-spacing:0.14em;text-transform:uppercase;color:#999;padding-bottom:8px;">
+        <div>Hour</div><div>Interpretation</div><div style="text-align:right;">West | Houston</div>
+      </div>
+      <div class="boundary-row"><div class="bh">00&#x2013;05</div><div style="font-size:0.86em;">Night: West trains freely (negative prices likely); HOU waits cheaply</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$18/MWh</span></div></div>
+      <div class="boundary-row"><div class="bh">06&#x2013;09</div><div style="font-size:0.86em;">Morning: both sites train if price below threshold</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$24/MWh</span></div></div>
+      <div class="boundary-row"><div class="bh">10&#x2013;16</div><div style="font-size:0.86em;">Solar trough: highest-value window at West; HOU neutral</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$31/MWh</span></div></div>
+      <div class="boundary-row"><div class="bh">17&#x2013;18</div><div style="font-size:0.86em;">Evening ramp: West still trains; HOU defers as price rises</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$68/MWh</span></div></div>
+      <div class="boundary-row"><div class="bh">19&#x2013;21</div><div style="font-size:0.86em;">Evening peak: Houston generation mode. Defer training, dispatch generator.</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$121/MWh</span></div></div>
+      <div class="boundary-row"><div class="bh">22&#x2013;23</div><div style="font-size:0.86em;">Late night: price falls, HOU trains again; West runs freely</div><div class="bv"><span class="bv w">&#x2212;$0.42</span> | <span class="bv h">$42/MWh</span></div></div>
+    </div>
+
+    <p>The West boundary is completely flat at &#x2212;$0.42/MWh across all 24 hours. This means: train at West whenever LMP &#x2265; &#x2212;$0.42, which is essentially always except during the most severely negative-price hours (deep curtailment events). The West optimal policy is almost always to run training because the LMP is so often near zero or negative.</p>
+    <p>Houston shows a strongly time-varying boundary, reflecting the peak-hour generator economics. The $121/MWh threshold at 19:00&#x2013;21:00 reflects that at those hours, the generator produces at a margin well above gas cost; it is far more valuable to run the generator than to use cheap power for training.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Implications</div>
+    <h2>What LSMC scheduling means for the operator</h2>
+    <div class="grid-2">
+      <div>
+        <p>$2.13M with zero hardware investment. The LSMC gain is a pure software change: update the training job scheduler to follow the hourly LMP threshold rule. No physical upgrades, no capital expenditure, no permit applications. This is the highest-ROI recommendation in the entire analysis.</p>
+        <p>West site runs at negative cost. Average daily power cost at West under the optimal policy = &#x2212;$372/day. The grid pays the operator to run AI training during solar curtailment. This is not a rounding error; it is a structural feature of West Texas renewable over-penetration.</p>
+      </div>
+      <div>
+        <p>Houston evening peak is the critical window. The $121/MWh threshold at 19:00&#x2013;21:00 means the operator should never train at Houston during those hours. Instead: dispatch the gas generator (if IMHR &gt; 9,500), collect the LMP, and defer training to overnight. These three hours are where the Houston site captures most of its generator strip value.</p>
+        <p>Annualised: ~$4.3M/year. The $2.13M gain over 6 months scales to approximately $4.3M annually, assuming similar seasonal renewable patterns. ERCOT renewable penetration grows, so this number likely improves over the next 3&#x2013;5 years as negative price frequency grows.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p>LSMC was developed for American options in quantitative finance. Its application here to AI training scheduling is a direct translation: the operator holds a series of American-style real options on cheap power, and LSMC identifies exactly when to exercise each one. The same algorithm applies directly if either site adds GPU capacity.</p>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="footer">
+  <p>This project was done in collaboration with Brenda Valencia.</p>
+</footer>
+</body>
+</html>

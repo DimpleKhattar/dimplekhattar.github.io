@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chart Gallery | Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:#F5F2ED;border-bottom:1px solid #eee;z-index:100;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.1em;font-weight:400;color:#333;text-decoration:none;}
+.navbar a.back{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#666;text-decoration:none;}
+.navbar a.back:hover{color:#333;}
+.content-wrapper{max-width:1200px;margin:0 auto;padding:60px 60px;}
+.back-link{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.14em;text-transform:uppercase;color:#999;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:40px;}
+.back-link:hover{color:#333;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:12px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:48px;max-width:680px;line-height:1.7;}
+.group-label{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:24px;margin-top:56px;padding-bottom:12px;border-bottom:1px solid #ddd;}
+.group-label:first-of-type{margin-top:0;}
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:8px;}
+.fig-grid.single{grid-template-columns:1fr;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;}
+.fig-caption{padding:18px 20px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.88em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:8px;line-height:1.6;}
+.badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.6em;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-top:4px;}
+.badge-up{background:#edfaf3;color:#1a7a4a;border:1px solid #c4ead6;}
+.badge-down{background:#fef0f0;color:#b93030;border:1px solid #f0c4c4;}
+.badge-neutral{background:#f0f4ff;color:#3a5099;border:1px solid #c4cfed;}
+.footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;margin-top:64px;}
+@media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.fig-grid,.fig-grid.single{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="navbar-title" href="grid_financing.html">Dimple Khattar</a>
+  <a class="back" href="grid_financing.html">&#x2190; Back to project</a>
+</div>
+<main>
+<div class="content-wrapper">
+  <a class="back-link" href="grid_financing.html">&#x2190; Financing the Grid</a>
+
+  <div class="kicker">Extended Chart Gallery</div>
+  <h1>All charts from the analysis</h1>
+  <p class="subtitle">Full set of outputs from all six analytical modules: LSMC optimal training, GBM calibration, Monte Carlo simulation, intermittency analysis, and NBB-SO outage modelling.</p>
+
+  <!-- GROUP 0: LSMC -->
+  <div class="group-label">00 &#xb7; LSMC Optimal Training Schedule</div>
+
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/LSMC_OptimalTraining_ExerciseBoundary_HourlyThresholds_HOU_WEST_Chart.png" alt="LSMC Exercise Boundaries by hour of day">
+      <div class="fig-caption">
+        <strong>LSMC Exercise Boundaries: Hourly LMP Thresholds (Houston &amp; West)</strong>
+        <p>West boundary is flat at &#x2212;$0.42/MWh across all 24 hours: train whenever price is at or above zero, capturing every negative-LMP window. Houston peaks at $121/MWh during 19:00&#x2013;21:00, reflecting the high opportunity cost of using cheap power when the generator could dispatch at a premium during evening peak hours.</p>
+        <span class="badge badge-up">Increases profitability</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/LSMC_OptimalTraining_RevenueImprovement_OptimalVsNaive_Comparison_Chart.png" alt="LSMC revenue improvement vs naive baseline">
+      <div class="fig-caption">
+        <strong>Scheduling Gain: +$2.13M over 6 months vs naive 24/7 baseline</strong>
+        <p>Daily improvement averages $11,714/day with no month showing a reversal. West total power cost over the 6-month period is negative; the operator is net paid by the grid to run AI workloads during solar curtailment. Annualised: approximately $4.3M/year from scheduling alone, with zero capital expenditure.</p>
+        <span class="badge badge-up">Increases profitability</span>
+      </div>
+    </figure>
+  </div>
+
+  <!-- GROUP 1: GBM Calibration -->
+  <div class="group-label">01 &#xb7; GBM Calibration Diagnostics</div>
+
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_ERCOT_LMP_HB_HOUSTON_log_returns_distribution_normality_QQ_test.png" alt="Houston LMP log-returns distribution and QQ test">
+      <div class="fig-caption">
+        <strong>Houston LMP: Log-Returns Distribution &amp; QQ Plot</strong>
+        <p>Daily log-return histogram with fitted normal overlay, plus Q-Q plot against theoretical normal quantiles. Both series reject normality (Shapiro-Wilk p &lt; 0.01), confirming fat tails in electricity prices. The Q-Q plot shows heavy deviation in both tails; large positive and negative moves occur more frequently than a Gaussian model predicts.</p>
+        <span class="badge badge-neutral">GBM Calibration</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_ERCOT_LMP_HB_WEST_log_returns_distribution_normality_QQ_test.png" alt="West LMP log-returns distribution and QQ test">
+      <div class="fig-caption">
+        <strong>West LMP: Log-Returns Distribution &amp; QQ Plot</strong>
+        <p>Same diagnostics for HB-WEST. West shows a wider distribution than Houston (&#x3c3;_WEST = 62.0% vs &#x3c3;_HOU = 46.3% annualised), with more pronounced tails. The higher kurtosis at West reflects renewable intermittency: solar and wind events push prices to extremes more frequently than thermal-dominant zones.</p>
+        <span class="badge badge-neutral">GBM Calibration</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_Henry_Hub_Natural_Gas_log_returns_distribution_normality_QQ_test.png" alt="Henry Hub log-returns distribution and QQ test">
+      <div class="fig-caption">
+        <strong>Henry Hub Natural Gas: Log-Returns Distribution &amp; QQ Plot</strong>
+        <p>Henry Hub is the most normally distributed of the three series (Shapiro-Wilk p = 0.07, marginally rejecting at 5%). Narrower distribution than either LMP series (&#x3c3;_HH = 34.5%/yr). This tighter gas price distribution is why the spark spread is dominated by LMP volatility rather than gas cost volatility.</p>
+        <span class="badge badge-neutral">GBM Calibration</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_AllSeries_correlation_matrix_daily_log_returns_HB-HOUSTON_HB-WEST_HenryHub.png" alt="Correlation matrix of daily log-returns">
+      <div class="fig-caption">
+        <strong>Correlation Matrix: All Three Series</strong>
+        <p>Pearson correlation of daily log-returns across HB-HOUSTON, HB-WEST, and Henry Hub. &#x3c1;(HOU, HH) = &#x2212;0.044 (near-zero). LMP and gas prices move largely independently. This near-zero correlation <em>adds</em> to spark spread volatility: when LMP spikes, gas is not reliably cheap to offset it. The positive &#x3c1;(HOU, WEST) = 0.61 reflects shared ERCOT market dynamics.</p>
+        <span class="badge badge-neutral">Correlation</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_ERCOT_LMP_HB_HOUSTON_rolling_drift_volatility_parameter_stability_window168.png" alt="Houston rolling parameter stability">
+      <div class="fig-caption">
+        <strong>Houston LMP: Rolling Drift &amp; Volatility (168-hr window)</strong>
+        <p>Rolling 168-hour (1-week) estimates of GBM drift (&#x3bc;) and volatility (&#x3c3;) for Houston LMP. Confirms that &#x3c3;_HOU is not constant; it ranges from ~30%/yr to ~70%/yr across the observation period. The MLE point estimate of 46.3%/yr is the mean, but episodic spikes (weather events, grid stress) drive periods of much higher volatility.</p>
+        <span class="badge badge-neutral">Parameter Stability</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_ERCOT_LMP_HB_WEST_rolling_drift_volatility_parameter_stability_window168.png" alt="West rolling parameter stability">
+      <div class="fig-caption">
+        <strong>West LMP: Rolling Drift &amp; Volatility (168-hr window)</strong>
+        <p>Rolling parameter estimates for West. Volatility episodes are sharper and more frequent at West than Houston, consistent with the renewable intermittency pattern. The drift (&#x3bc;) oscillates around negative values, confirming the structural mean-reversion tendency in electricity prices even within a GBM framework.</p>
+        <span class="badge badge-neutral">Parameter Stability</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_HenryHub_NaturalGas_rolling_drift_volatility_parameter_stability_window30.png" alt="Henry Hub rolling parameter stability">
+      <div class="fig-caption">
+        <strong>Henry Hub: Rolling Drift &amp; Volatility (30-day window)</strong>
+        <p>30-day rolling estimates for Henry Hub (daily data (shorter lookback is appropriate for sparser series)). Volatility is more stable than either LMP series, ranging from ~20%/yr to ~55%/yr. The February&#x2013;April window shows declining drift consistent with the observed $0.86/MMBtu price decline that drove improving IMHR numbers.</p>
+        <span class="badge badge-neutral">Parameter Stability</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_AllSeries_parameter_comparison_annual_drift_volatility_bar_chart.png" alt="Parameter comparison bar chart">
+      <div class="fig-caption">
+        <strong>Annual Drift &amp; Volatility: All Three Series Compared</strong>
+        <p>Side-by-side bar chart of MLE-estimated drift and volatility parameters. Confirms the ranking: &#x3c3;_WEST &gt; &#x3c3;_HOU &gt; &#x3c3;_HH. All three series show negative drift over the observation window, reflecting the declining price environment. West has the highest absolute volatility and the most negative drift.</p>
+        <span class="badge badge-neutral">GBM Calibration</span>
+      </div>
+    </figure>
+  </div>
+
+  <!-- GROUP 2: Monte Carlo -->
+  <div class="group-label">02 &#xb7; Monte Carlo Price Path Simulations</div>
+
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_ERCOT_LMP_HB-HOUSTON_10kpaths_1yr_horizon_simulated_paths_CI_terminal_distribution.png" alt="Houston LMP Monte Carlo fan chart">
+      <div class="fig-caption">
+        <strong>Houston LMP: 10,000-Path Monte Carlo Fan Chart (1-year)</strong>
+        <p>Fan chart showing the 10th, 25th, 50th, 75th, and 90th percentile paths plus the terminal distribution at t=1yr. The wide fan reflects &#x3c3;_HOU = 46.3%/yr. 1-year VaR(95%) = $142/MWh. The terminal distribution is right-skewed: the log-normal assumption allows for occasional very high prices, consistent with ERCOT scarcity events.</p>
+        <span class="badge badge-neutral">Monte Carlo</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_ERCOT_LMP_HB-WEST_10kpaths_1yr_horizon_simulated_paths_CI_terminal_distribution.png" alt="West LMP Monte Carlo fan chart">
+      <div class="fig-caption">
+        <strong>West LMP: 10,000-Path Monte Carlo Fan Chart (1-year)</strong>
+        <p>West fan chart is noticeably wider than Houston, reflecting the higher calibrated volatility (&#x3c3;_WEST = 62.0%/yr). 1-year VaR(95%) = $167/MWh. The wider confidence intervals translate directly into higher option values for West: every volatility-dependent instrument (LSMC, Bachelier call) is worth more at West than Houston.</p>
+        <span class="badge badge-up">Increases option value</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_HenryHub_NaturalGas_10kpaths_1yr_horizon_simulated_paths_CI_terminal_distribution.png" alt="Henry Hub Monte Carlo fan chart">
+      <div class="fig-caption">
+        <strong>Henry Hub: 10,000-Path Monte Carlo Fan Chart (1-year)</strong>
+        <p>Henry Hub fan chart is narrower than both LMP series. The correlated gas paths feed into the spark spread simulation: when gas prices are high on a given path, the generator dispatch threshold also rises. The joint simulation of LMP and gas paths is critical for correctly valuing the tolling agreement.</p>
+        <span class="badge badge-neutral">Monte Carlo</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_SparkSpread_HB-HOUSTON_HSC-gas_adder-3.00perMMBtu_HR-9.5_10kpaths_1yr_horizon_fan_chart_profitability_VaR_CVaR.png" alt="Houston spark spread Monte Carlo">
+      <div class="fig-caption">
+        <strong>Houston Spark Spread: 10,000 Paths, VaR &amp; CVaR (HR 9.5, adder $3.00)</strong>
+        <p>Simulated hourly spark spread paths with profitability shading. Green region: spread &gt; 0 (generator in-money). Red region: spread &lt; 0 (grid cheaper). Mean forward spread = &#x2212;$29.04/MWh. Despite negative mean, the right tail extends to +$80&#x2013;$120/MWh during scarcity events. These tail events drive the Bachelier call value of $3.63M&#x2013;$6.18M.</p>
+        <span class="badge badge-up">Generator option value</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid single" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_SparkSpread_HB-WEST_Waha-gas_adder-0.00perMMBtu_HR-9.5_10kpaths_1yr_horizon_fan_chart_profitability_VaR_CVaR.png" alt="West spark spread Monte Carlo">
+      <div class="fig-caption">
+        <strong>West Spark Spread: 10,000 Paths, VaR &amp; CVaR (Waha gas, no adder)</strong>
+        <p>The West site uses Waha Hub (West Texas) gas pricing rather than Henry Hub, with no O&amp;M adder (West does not have a generator in this analysis). This chart shows the hypothetical West spark spread if a generator were deployed there. The much wider confidence interval vs Houston reflects &#x3c3;_WEST = 62%/yr. Included for completeness and to illustrate why West LMP vol is the dominant input to all spread calculations at that site.</p>
+        <span class="badge badge-neutral">Reference scenario</span>
+      </div>
+    </figure>
+  </div>
+
+  <!-- GROUP 3: Intermittency -->
+  <div class="group-label">03 &#xb7; West Texas Intermittency Analysis</div>
+
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/ERCOT_West_Intermittency_ScatterPlots_RenewableGen_vs_LMP_West_HourOfDay.png" alt="Renewable generation vs LMP scatter plots by hour">
+      <div class="fig-caption">
+        <strong>Renewable Generation vs LMP: Scatter Plots by Hour of Day</strong>
+        <p>Six-panel scatter plot showing the relationship between solar and wind generation (MW) against HB-WEST LMP for each 4-hour block. The strongly negative slope during solar hours (10:00&#x2013;16:00) gives r = &#x2212;0.80. As solar output rises, LMP falls, and when solar generation is highest, LMP frequently goes negative. The relationship is much weaker during night hours when wind is the primary driver.</p>
+        <span class="badge badge-down">Drives negative prices</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/ERCOT_West_Intermittency_GenerationProfile_NegativePricingPatterns_Hourly.png" alt="Hourly generation profile and negative pricing patterns">
+      <div class="fig-caption">
+        <strong>Hourly Generation Profile &amp; Negative Pricing Frequency (West)</strong>
+        <p>Dual-axis chart: mean MW of solar and wind generation by hour of day (bars) overlaid with % of hours recording negative LMP (line). Solar peaks at 12:00&#x2013;14:00; negative price frequency peaks at 11:00&#x2013;15:00 (47&#x2013;53%). Night wind maintains a 20&#x2013;34% negative price frequency. The 10:00&#x2013;16:00 window is the core charging and training window identified by LSMC.</p>
+        <span class="badge badge-up">Defines training window</span>
+      </div>
+    </figure>
+  </div>
+
+  <!-- GROUP 4: NBB-SO -->
+  <div class="group-label">04 &#xb7; NBB-SO Outage Model Diagnostics (All Four ERCOT Zones)</div>
+
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/NBB-SO_4Z_WestZone_diagnostic_panel_ROC_ActualVsPredicted_F1Threshold_ConfusionMatrix_Fmu_Falpha_FeatureImportanceMDI_train2018-2023.png" alt="NBB-SO West Zone diagnostic panel">
+      <div class="fig-caption">
+        <strong>NBB-SO: West Zone Diagnostic Panel</strong>
+        <p>Six-panel diagnostic for the West zone model (trained on 2018&#x2013;2023 ERCOT data). Includes ROC curve, actual vs predicted outage counts, F1 optimal threshold, confusion matrix, and Mean Decrease Impurity (MDI) feature importance for both F_&#x3bc; (mean count) and F_&#x3b1; (overdispersion) classifiers. wind_speed is the dominant feature in both F_&#x3bc; and F_&#x3b1; at West, a direct link between cheap power conditions and high outage risk.</p>
+        <span class="badge badge-down">Wind = cheap power AND outage risk</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/NBB-SO_4Z_HoustonZone_diagnostic_panel_ROC_ActualVsPredicted_F1Threshold_ConfusionMatrix_Fmu_Falpha_FeatureImportanceMDI_train2018-2023.png" alt="NBB-SO Houston Zone diagnostic panel">
+      <div class="fig-caption">
+        <strong>NBB-SO: Houston Zone Diagnostic Panel</strong>
+        <p>Same diagnostic panels for Houston. Feature importance is more distributed across temperature, humidity, and load variables, rather than wind-dominated like West. Houston outage patterns are driven more by demand-side stress (heatwaves, demand spikes) than by renewable generation events. This means the training schedule at Houston does not carry the same simultaneous cheap-power / high-risk tension as at West.</p>
+        <span class="badge badge-neutral">NBB-SO Diagnostic</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="fig-grid" style="margin-top:28px;">
+    <figure class="fig-card">
+      <img src="figures/NBB-SO_4Z_NorthZone_diagnostic_panel_ROC_ActualVsPredicted_F1Threshold_ConfusionMatrix_Fmu_Falpha_FeatureImportanceMDI_train2018-2023.png" alt="NBB-SO North Zone diagnostic panel">
+      <div class="fig-caption">
+        <strong>NBB-SO: North Zone Diagnostic Panel</strong>
+        <p>North Zone diagnostics included for completeness. The North zone (Dallas/Fort Worth area) shows intermediate characteristics between Houston and West. Ice storm events (2021 context) have elevated the historical overdispersion estimate. Not a primary site in this analysis but informs ERCOT-wide grid stress correlation structures.</p>
+        <span class="badge badge-neutral">NBB-SO Diagnostic</span>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/NBB-SO_4Z_SouthZone_diagnostic_panel_ROC_ActualVsPredicted_F1Threshold_ConfusionMatrix_Fmu_Falpha_FeatureImportanceMDI_train2018-2023.png" alt="NBB-SO South Zone diagnostic panel">
+      <div class="fig-caption">
+        <strong>NBB-SO: South Zone Diagnostic Panel</strong>
+        <p>South Zone (San Antonio / Laredo area) diagnostics. Temperature variables dominate at South, the warmest zone in ERCOT with the highest cooling load. Outage risk is most strongly correlated with peak demand hours (15:00&#x2013;18:00) rather than generation intermittency. Provides a useful contrast to West zone's wind-dominated profile.</p>
+        <span class="badge badge-neutral">NBB-SO Diagnostic</span>
+      </div>
+    </figure>
+  </div>
+
+</div>
+</main>
+<footer class="footer">
+  <p>This project was done in collaboration with Brenda Valencia.</p>
+</footer>
+</body>
+</html>

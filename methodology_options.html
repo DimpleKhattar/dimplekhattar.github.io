@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Options Pricing — Bachelier Spark Spread | Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:#F5F2ED;border-bottom:1px solid #eee;z-index:100;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.1em;font-weight:400;color:#333;text-decoration:none;}
+.navbar a.back{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#666;text-decoration:none;}
+.navbar a.back:hover{color:#333;}
+.content-wrapper{max-width:1100px;margin:0 auto;padding:60px 60px;}
+.back-link{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.14em;text-transform:uppercase;color:#999;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:40px;}
+.back-link:hover{color:#333;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:16px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:40px;max-width:680px;line-height:1.7;}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68em;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:20px;}
+h2{font-family:'DM Serif Display',serif;font-size:1.45em;font-weight:400;margin-bottom:20px;margin-top:44px;}
+h3{font-family:'DM Serif Display',serif;font-size:1.05em;font-weight:400;margin-bottom:10px;margin-top:20px;}
+p{margin-bottom:16px;color:#555;line-height:1.8;font-size:0.94em;}
+p strong{font-weight:500;color:#333;}
+section{margin-bottom:48px;}
+.eq-box{background:#1e1e2e;border-radius:3px;padding:16px 20px;font-family:'DM Mono',monospace;font-size:0.75em;color:#a0c4ff;margin:14px 0;line-height:2.1;overflow-x:auto;}
+.eq-box .eq-label{font-size:0.65em;letter-spacing:0.15em;text-transform:uppercase;color:#e8a020;display:block;margin-bottom:6px;}
+.eq-box .hl-g{color:#86efac;} .eq-box .hl-y{color:#fbbf24;} .eq-box .hl-w{color:#fff;} .eq-box .hl-m{color:#c4b5fd;}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ddd;border:1px solid #ddd;border-radius:2px;overflow:hidden;margin:20px 0;}
+.stat-cell{background:white;padding:16px 18px;}
+.stat-cell .sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#999;margin-bottom:5px;}
+.stat-cell .sv{font-family:'DM Mono',monospace;font-size:1.1em;font-weight:500;color:#333;}
+.stat-cell .sv.g{color:#1a7a4a;}
+.card{padding:20px;border:1px solid #eee;border-radius:2px;background:white;margin-bottom:16px;}
+.card h4{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#333;margin-bottom:10px;font-weight:500;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
+.callout{border-left:3px solid #333;padding:16px 20px;background:rgba(0,0,0,0.02);border-radius:0 2px 2px 0;margin:20px 0;}
+.callout p{margin-bottom:0;font-size:0.88em;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.87em;}
+thead tr{background:#2c2c2c;color:white;}
+thead th{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:500;}
+tbody td{padding:10px 14px;border-bottom:1px solid #eee;color:#444;}
+tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
+.step-row{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #eee;align-items:start;}
+.step-row:last-child{border-bottom:none;}
+.step-n{font-family:'DM Mono',monospace;font-size:0.7em;font-weight:500;color:#999;padding-top:3px;}
+.step-text{font-size:0.88em;color:#444;line-height:1.7;}
+.footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
+@media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.stat-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="navbar-title" href="grid_financing.html">Dimple Khattar</a>
+  <a class="back" href="grid_financing.html">&#x2190; Back to project</a>
+</div>
+<main>
+<div class="content-wrapper">
+  <a class="back-link" href="grid_financing.html">&#x2190; Financing the Grid</a>
+
+  <div class="kicker">Module 04 . Options Pricing</div>
+  <h1>Bachelier Normal Call &amp; Spark Spread Strip</h1>
+  <p class="subtitle">How we valued the Houston gas generator tolling agreement as a strip of Bachelier normal call options on the spark spread, and why the Bachelier model is required when the forward price is negative.</p>
+
+  <section>
+    <div class="section-label">What is it?</div>
+    <h2>The Bachelier normal model</h2>
+    <p>The standard Black-Scholes model assumes the underlying asset follows a log-normal distribution, meaning it can never be negative. For a single commodity option (oil, gas), this is reasonable. But for a spread option such as the spark spread (LMP minus gas cost), the underlying can and does go negative. Black-Scholes breaks down.</p>
+    <p>The Bachelier normal model (1900) instead assumes the underlying follows a normal (Gaussian) distribution. It can handle negative forwards and strikes, making it the correct model for energy spreads.</p>
+    <div class="eq-box">
+      <span class="eq-label">Bachelier normal call price</span>
+      <span class="hl-w">C = (F &#x2212; K) &#xb7; N(d) + &#x3c3; &#x221a;T &#xb7; n(d)</span><br>
+      <span class="hl-g">d = (F &#x2212; K) / (&#x3c3; &#x221a;T)</span><br>
+      <span style="color:rgba(160,196,255,0.6);font-size:0.85em;">N(&#xb7;) = standard normal CDF &nbsp;|&nbsp; n(&#xb7;) = standard normal PDF</span><br>
+      <span style="color:rgba(160,196,255,0.6);font-size:0.85em;">F = forward spread &nbsp;|&nbsp; K = strike &nbsp;|&nbsp; T = time to expiry &nbsp;|&nbsp; &#x3c3; = normal vol</span>
+    </div>
+    <p>Our specific application uses an offset-adjusted Bachelier formulation when the forward spark spread F is negative (which it is: F = &#x2212;$29.04/MWh). We shift both F and K by the same positive offset to make F positive, compute the call, and the economics are unchanged because the payoff only depends on (F &#x2212; K), not the absolute levels.</p>
+  </section>
+
+  <section>
+    <div class="section-label">How does it fit here?</div>
+    <h2>Valuing the tolling agreement as a call strip</h2>
+    <p>The Houston tolling agreement grants the right to dispatch the gas generator each hour at a fixed heat rate. This is equivalent to owning a strip of 4,380 hourly European call options on the spark spread, one for each hour over the six-month horizon.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h4>What the spark spread is</h4>
+        <p style="font-size:0.86em;">Spark spread ($/MWh) = LMP &#x2212; (HH + $3.00) &#xd7; 9.5</p>
+        <p style="font-size:0.86em;">The generator is exercised (dispatched) when spark spread &gt; 0. The tolling fee ($3.00/MMBtu O&amp;M adder) raises the effective gas cost above Henry Hub spot.</p>
+      </div>
+      <div class="card">
+        <h4>Why the forward is negative</h4>
+        <p style="font-size:0.86em;">Averaging Feb&#x2013;Apr data: mean LMP_HOU = $26.84/MWh, mean gas cost = (3.14 + 3.00) &#xd7; 9.5 = $58.33/MWh. Mean spark spread F = 26.84 &#x2212; 58.33 = <strong>&#x2212;$29.04/MWh</strong>. Generator is out-of-the-money on average, but has significant option value due to volatility spikes.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p>A negative forward spread does not mean the option is worthless; it means the option is deeply out-of-the-money on the mean path. With &#x3c3;_spark = $48.69/MWh and a 1-month horizon, the right tail of the distribution extends well into positive territory. The Bachelier call price captures this tail value.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How did we work on it?</div>
+    <h2>Derivation and computation</h2>
+
+    <div style="background:white;border:1px solid #eee;border-radius:2px;padding:20px;margin:16px 0;">
+      <div class="step-row">
+        <div class="step-n">01</div>
+        <div class="step-text">Compute the spark spread series. For each of the 2,135 hourly observations: SS_t = lmp_houston_t &#x2212; (hh_t + 3.00) &#xd7; 9.5. Filter to non-zero gas price hours only.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">02</div>
+        <div class="step-text">Estimate daily spark spread volatility. Standard deviation of the daily mean spark spread = $48.69/MWh. Annualise: &#x3c3;_ann = $48.69 &#xd7; &#x221a;252 = $772/MWh (but we use the annualised percentage vol = 51.34%/yr decomposed from GBM components for consistency with the calibration).</div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">03</div>
+        <div class="step-text">Price each monthly option. For each calendar month (Feb, Mar, Apr, May, Jun, Jul), compute a Bachelier call with: F = month forward spark spread, K = 0 (at-the-money-forward strike), T = time to month midpoint, &#x3c3; = calibrated normal vol. Multiply by total MW-hours in the month (capacity &#xd7; hours).</div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">04</div>
+        <div class="step-text">Sum the strip. Monthly option values are summed to produce the total strip value. Three vol scenarios: base (48.69/MWh), low (40/MWh), high (60/MWh).</div>
+      </div>
+    </div>
+
+    <h3>Spark spread volatility decomposition</h3>
+    <div class="eq-box">
+      <span class="eq-label">Combined volatility formula</span>
+      <span class="hl-w">&#x3c3;_spark = &#x221a;(&#x3c3;_LMP&#xb2; + (HR &#xb7; &#x3c3;_gas)&#xb2; &#x2212; 2 &#xb7; HR &#xb7; &#x3c1; &#xb7; &#x3c3;_LMP &#xb7; &#x3c3;_gas)</span><br>
+      <span class="hl-g">= &#x221a;(46.3&#xb2; + (9.5 &#xd7; 34.5)&#xb2; &#x2212; 2 &#xb7; 9.5 &#xb7; (&#x2212;0.044) &#xb7; 46.3 &#xb7; 34.5)</span><br>
+      <span class="hl-y">= &#x221a;(2143.69 + 107,255.06 + 1,335.54)</span><br>
+      <span class="hl-m">= &#x221a;110,734.29 = 332.9/yr (annualised basis points)</span><br>
+      <span style="color:rgba(160,196,255,0.6);font-size:0.85em;">In spread units: effectively 51.34%/yr vol on the spread level</span>
+    </div>
+    <p>Note the negative correlation &#x3c1; = &#x2212;0.044 <em>adds</em> to spread volatility: because LMP and gas tend to move in the same direction (both up or both down), the spread is more volatile than each component. The &#x2212;2&#xb7;HR&#xb7;&#x3c1; term becomes positive, increasing &#x3c3;_spark.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Findings</div>
+    <h2>Strip valuation across three scenarios</h2>
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Normal vol (&#x3c3;)</th><th>Monthly option value</th><th>6-Month strip total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Low vol</td><td>$40/MWh</td><td>$439K &#x2013; $572K</td><td>$3.63M</td></tr>
+        <tr><td>Base vol</td><td>$48.69/MWh</td><td>$618K &#x2013; $812K</td><td>$4.73M</td></tr>
+        <tr><td>High vol</td><td>$60/MWh</td><td>$810K &#x2013; $1.02M</td><td>$6.18M</td></tr>
+      </tbody>
+    </table>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="sl">Forward spark spread</div>
+        <div class="sv">&#x2212;$29.04/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Normal vol (base)</div>
+        <div class="sv">$48.69/MWh</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Strip range</div>
+        <div class="sv g">$3.63M &#x2013; $6.18M</div>
+      </div>
+    </div>
+    <p>The option value is substantial even with a deeply negative forward because volatility is large relative to the distance from zero. &#x3c3; = $48.69/MWh vs F = &#x2212;$29.04/MWh: the forward is only 0.6 standard deviations out-of-the-money on a monthly basis. Options this close to the money have significant time value.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Implications</div>
+    <h2>Why options pricing changes the investment decision</h2>
+    <div class="grid-2">
+      <div>
+        <p>Naive cost analysis says don't bother. At a negative mean spark spread of &#x2212;$29/MWh, an analyst using expected values would recommend not dispatching the generator in any month other than April. This analysis would value the tolling agreement at zero or negative.</p>
+        <p>Options pricing reveals $4.73M of value. The right to dispatch (not the obligation) transforms the negative-expected-value asset into a positive-valued option. The Bachelier model captures exactly this asymmetry: unlimited upside from spikes, floored downside at zero (we simply don't dispatch).</p>
+      </div>
+      <div>
+        <p>Bachelier is required, not optional. Black-Scholes would require a positive forward. Applying it naively to a negative forward (e.g., by shifting the scale) introduces pricing errors. The Bachelier model is the correct choice for spread options and is standard practice in energy markets.</p>
+        <p>The tolling fee threshold matters. At the base case, the tolling agreement is worth holding at any cost below $4.73M. At high vol, the threshold rises to $6.18M. The operator should renew or extend the agreement at any price below the low-vol estimate of $3.63M for a certainty margin.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p>The options pricing module is where the generator transforms from a "backup power source" into a financial instrument. The $3.63M&#x2013;$6.18M strip value quantifies exactly what the operator would pay to keep the right-to-dispatch, and therefore what price the counterparty can reasonably demand for the tolling agreement.</p>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="footer">
+  <p>This project was done in collaboration with Brenda Valencia.</p>
+</footer>
+</body>
+</html>

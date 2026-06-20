@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intermittency — West Negative Pricing | Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:#F5F2ED;border-bottom:1px solid #eee;z-index:100;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.1em;font-weight:400;color:#333;text-decoration:none;}
+.navbar a.back{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#666;text-decoration:none;}
+.navbar a.back:hover{color:#333;}
+.content-wrapper{max-width:1100px;margin:0 auto;padding:60px 60px;}
+.back-link{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.14em;text-transform:uppercase;color:#999;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:40px;}
+.back-link:hover{color:#333;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:16px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:40px;max-width:680px;line-height:1.7;}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68em;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:20px;}
+h2{font-family:'DM Serif Display',serif;font-size:1.45em;font-weight:400;margin-bottom:20px;margin-top:44px;}
+h3{font-family:'DM Serif Display',serif;font-size:1.05em;font-weight:400;margin-bottom:10px;margin-top:20px;}
+p{margin-bottom:16px;color:#555;line-height:1.8;font-size:0.94em;}
+p strong{font-weight:500;color:#333;}
+section{margin-bottom:48px;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;border:1px solid #ddd;border-radius:2px;overflow:hidden;margin:20px 0;}
+.stat-cell{background:white;padding:16px 18px;}
+.stat-cell .sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#999;margin-bottom:5px;}
+.stat-cell .sv{font-family:'DM Mono',monospace;font-size:1.1em;font-weight:500;color:#333;}
+.stat-cell .sv.g{color:#1a7a4a;} .stat-cell .sv.a{color:#664d2a;}
+.card{padding:20px;border:1px solid #eee;border-radius:2px;background:white;margin-bottom:16px;}
+.card h4{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.12em;text-transform:uppercase;color:#333;margin-bottom:10px;font-weight:500;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:16px 0;}
+.callout{border-left:3px solid #333;padding:16px 20px;background:rgba(0,0,0,0.02);border-radius:0 2px 2px 0;margin:20px 0;}
+.callout p{margin-bottom:0;font-size:0.88em;}
+.callout.warn{border-left-color:#b93030;background:#fef8f8;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.87em;}
+thead tr{background:#2c2c2c;color:white;}
+thead th{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:500;}
+tbody td{padding:10px 14px;border-bottom:1px solid #eee;color:#444;}
+tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
+.regime-row{display:grid;grid-template-columns:80px 1fr 120px 120px;gap:16px;padding:12px 0;border-bottom:1px solid #eee;align-items:center;}
+.regime-row:last-child{border-bottom:none;}
+.regime-hour{font-family:'DM Mono',monospace;font-size:0.78em;font-weight:500;color:#333;}
+.regime-pct{font-family:'DM Mono',monospace;font-size:0.8em;color:#1a7a4a;text-align:right;}
+.regime-pct.neg{color:#b93030;}
+.footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
+@media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.grid-3,.stat-grid{grid-template-columns:1fr;}.regime-row{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="navbar-title" href="grid_financing.html">Dimple Khattar</a>
+  <a class="back" href="grid_financing.html">&#x2190; Back to project</a>
+</div>
+<main>
+<div class="content-wrapper">
+  <a class="back-link" href="grid_financing.html">&#x2190; Financing the Grid</a>
+
+  <div class="kicker">Module 03 . Intermittency</div>
+  <h1>West Texas Negative Pricing &amp; Renewable Intermittency</h1>
+  <p class="subtitle">How we analysed ERCOT generation data to quantify the frequency, depth, and hourly pattern of negative prices at the HB-WEST hub, and how this connects to both the BESS strategy and the outage risk at the West data center.</p>
+
+  <section>
+    <div class="section-label">What is it?</div>
+    <h2>Negative electricity pricing in ERCOT</h2>
+    <p>In a deregulated electricity market, prices can go negative when supply exceeds demand and generators cannot be economically curtailed quickly. West Texas is ERCOT's most renewable-intensive zone: wind farms across the Permian Basin and solar farms throughout the region can collectively generate more power than the local grid can absorb.</p>
+    <p>Three mechanisms drive negative prices at HB-WEST:</p>
+    <div class="grid-3">
+      <div class="card">
+        <h4>Wind curtailment</h4>
+        <p style="font-size:0.85em;">Wind turbines generate when wind blows regardless of demand. When wind output exceeds transmission capacity east to Houston and Dallas, local prices go negative to incentivize consumption.</p>
+      </div>
+      <div class="card">
+        <h4>Solar curtailment</h4>
+        <p style="font-size:0.85em;">Solar peaks 10:00&#x2013;16:00. In spring, solar output routinely exceeds local load. 50.7% of all negative price hours at West occur in this 6-hour window.</p>
+      </div>
+      <div class="card">
+        <h4>Transmission congestion</h4>
+        <p style="font-size:0.85em;">West Texas generation cannot always flow east due to transmission limits. Locally stranded power means local prices go negative even when the rest of ERCOT has normal prices.</p>
+      </div>
+    </div>
+    <p>A negative price means generators are paying consumers to take electricity. From the data center operator's perspective: when training, every negative-price hour is a payment received, not a cost incurred.</p>
+  </section>
+
+  <section>
+    <div class="section-label">How does it fit here?</div>
+    <h2>Three downstream uses of this analysis</h2>
+    <p>The intermittency analysis feeds three other modules:</p>
+    <div class="grid-3">
+      <div class="card">
+        <h4>BESS valuation</h4>
+        <p style="font-size:0.85em;">Negative price hours are the BESS charging window. The depth and frequency of negative prices determines the TB1/TB2 daily spread, the core input to battery P&L.</p>
+      </div>
+      <div class="card">
+        <h4>LSMC training schedule</h4>
+        <p style="font-size:0.85em;">The 10:00&#x2013;16:00 solar trough window identified here becomes the LSMC exercise region at West. The optimal boundary &#x3b8;* = &#x2212;$0.42/MWh is calibrated from this hourly pattern.</p>
+      </div>
+      <div class="card">
+        <h4>NBB-SO linkage</h4>
+        <p style="font-size:0.85em;">wind_speed is the dominant feature in both F_&#x3bc; and F_&#x3b1; at West. High-wind hours = cheapest power AND highest outage risk. The BESS cannot do both simultaneously.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How did we work on it?</div>
+    <h2>Six-regime hourly pattern analysis</h2>
+    <p>We classified the 24-hour day into six regimes based on characteristic price behaviour, using 2,135 hourly ERCOT observations (February&#x2013;April 2026):</p>
+
+    <div style="border:1px solid #eee;border-radius:2px;background:white;padding:20px;margin:16px 0;">
+      <div class="regime-row" style="font-family:'DM Mono',monospace;font-size:0.68em;letter-spacing:0.14em;text-transform:uppercase;color:#999;padding-bottom:8px;">
+        <div>Hours</div><div>Regime</div><div style="text-align:right;">Neg. LMP %</div><div style="text-align:right;">Avg LMP</div>
+      </div>
+      <div class="regime-row"><div class="regime-hour">00&#x2013;05</div><div><strong>Night wind:</strong> high wind output, low demand, frequent negative prices</div><div class="regime-pct neg">34.2%</div><div class="regime-pct">&#x2212;$2.1</div></div>
+      <div class="regime-row"><div class="regime-hour">06&#x2013;09</div><div><strong>Morning ramp:</strong> demand rising, prices typically positive</div><div class="regime-pct">8.1%</div><div class="regime-pct">$18.4</div></div>
+      <div class="regime-row"><div class="regime-hour">10&#x2013;16</div><div><strong>Solar trough:</strong> peak solar generation, strong negative price signal</div><div class="regime-pct neg" style="font-weight:500;">47.3%</div><div class="regime-pct">&#x2212;$4.8</div></div>
+      <div class="regime-row"><div class="regime-hour">17&#x2013;19</div><div><strong>Evening ramp:</strong> solar drops, demand peaks, prices spike</div><div class="regime-pct">3.2%</div><div class="regime-pct">$42.7</div></div>
+      <div class="regime-row"><div class="regime-hour">20&#x2013;22</div><div><strong>Evening peak:</strong> high demand, highest LMP, discharge window</div><div class="regime-pct">1.4%</div><div class="regime-pct">$61.3</div></div>
+      <div class="regime-row"><div class="regime-hour">23</div><div><strong>Late night:</strong> demand drops, transitional</div><div class="regime-pct">12.8%</div><div class="regime-pct">$8.2</div></div>
+    </div>
+
+    <h3>Correlation analysis</h3>
+    <p>Pearson correlation between hourly renewable generation and LMP:</p>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="sl">Solar vs LMP (West)</div>
+        <div class="sv a">r = &#x2212;0.80</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Wind vs LMP (West)</div>
+        <div class="sv a">r = &#x2212;0.61</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Solar vs neg. LMP freq.</div>
+        <div class="sv a">r = +0.93</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Wind vs outage risk</div>
+        <div class="sv a">Dominant in F_&#x3bc; &amp; F_&#x3b1;</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Findings</div>
+    <h2>West Texas price data</h2>
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="sl">Total obs.</div>
+        <div class="sv">2,135 hrs</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Negative price hours</div>
+        <div class="sv a">607 (28.4%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Severely neg (&lt;&#x2212;$20)</div>
+        <div class="sv a">27 hrs (1.3%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="sl">Spike hrs (&gt;$50)</div>
+        <div class="sv g">164 hrs (7.7%)</div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Month</th><th>Neg. LMP %</th><th>Mean neg. LMP</th><th>Solar trough neg. %</th><th>Spike hrs (&gt;$50)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>February 2026</td><td>21.4%</td><td>&#x2212;$3.8/MWh</td><td>38.2%</td><td>4.1%</td></tr>
+        <tr><td>March 2026</td><td>35.0%</td><td>&#x2212;$5.1/MWh</td><td>51.4%</td><td>8.3%</td></tr>
+        <tr><td>April 2026</td><td>28.2%</td><td>&#x2212;$6.4/MWh</td><td>52.7%</td><td>9.6%</td></tr>
+      </tbody>
+    </table>
+    <p>The monthly variation is driven by seasonal solar output: March has the highest negative price frequency because it combines high solar output with lower demand than April. April has the deepest negative prices (&#x2212;$6.4/MWh mean) because of sustained solar curtailment during low-demand afternoons.</p>
+    <p>49.4% of solar trough hours (10:00&#x2013;16:00) record negative LMP. Pearson correlation between solar generation level and negative-price frequency by hour = +0.93, a near-perfect linear relationship.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Implications</div>
+    <h2>The central strategic tension at West</h2>
+    <div class="grid-2">
+      <div>
+        <p>The cheapest hours are the riskiest hours. The same high-wind, high-solar conditions that push LMP negative also drive the highest outage probability at West (NBB-SO finding). An operator scheduling all training in the 10:00&#x2013;16:00 window is simultaneously maximising cost savings and maximising outage exposure.</p>
+        <p>49.4% solar trough hours are negative. For a data center running 24/7 inference workloads that can shift GPU training to these windows, this represents a massive cost opportunity. Scheduling training exclusively in negative-price hours produces a negative average daily power cost.</p>
+      </div>
+      <div>
+        <p>The virtual BESS captures price spread without operational complexity. The 607 negative-price hours provide a wide daily spread (P_min often negative, P_max typically $30&#x2013;$60). The TB2 spread averages $152/MWh. A virtual swap captures this without requiring a physical battery to be at the right state of charge at the right time.</p>
+        <p>Physical BESS has an operational conflict. A physical battery cannot simultaneously be: (a) fully charged for arbitrage after a negative-price window and (b) available as full backup power for a wind-driven outage. The intermittency analysis is the justification for keeping physical BESS as insurance, not arbitrage.</p>
+      </div>
+    </div>
+    <div class="callout warn">
+      <p>The core West site tension: The single variable (wind_speed) that creates the most valuable charging windows also creates the highest outage risk. Any operating policy that treats negative prices as pure opportunity, without accounting for simultaneous grid fragility, is incomplete. The LSMC boundary at &#x2212;$0.42/MWh implicitly handles this by running training (not BESS charge) during these windows, decoupling the scheduling opportunity from the physical battery constraint.</p>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="footer">
+  <p>This project was done in collaboration with Brenda Valencia.</p>
+</footer>
+</body>
+</html>
