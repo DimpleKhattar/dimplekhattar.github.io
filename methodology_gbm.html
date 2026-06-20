@@ -46,6 +46,14 @@ tbody td{padding:10px 14px;border-bottom:1px solid #eee;color:#444;}
 tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 .footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
 @media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.grid-3,.stat-grid{grid-template-columns:1fr;}}
+
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;max-height:380px;}
+.fig-caption{padding:16px 18px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.87em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:0;line-height:1.6;}
+@media(max-width:900px){.fig-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -165,6 +173,23 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
         <p style="font-size:0.85em;">168-hour (1-week) rolling window shows &#x3c3;_WEST is structurally higher than &#x3c3;_HOU in all windows. Parameters are not constant, but the ranking is stable.</p>
       </div>
     </div>
+  
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_AllSeries_parameter_comparison_annual_drift_volatility_bar_chart.png" alt="Calibrated annual drift and volatility bar chart for all three series">
+      <div class="fig-caption">
+        <strong>Calibrated Annual Drift and Volatility: All Three Series</strong>
+        <p>MLE-estimated drift (μ) and volatility (σ) for HB-Houston, HB-West, and Henry Hub. West carries the highest volatility at 62.0%/yr vs Houston at 46.3%/yr and Henry Hub at 34.5%/yr. The σ_WEST &gt; σ_HOU ranking is stable across the period and drives all downstream option valuations: higher volatility produces wider Bachelier call distributions and larger LSMC gains at the West site.</p>
+      </div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_ERCOT_LMP_HB-HOUSTON_10kpaths_1yr_horizon_simulated_paths_CI_terminal_distribution.png" alt="Houston LMP 10,000-path Monte Carlo fan chart with terminal distribution">
+      <div class="fig-caption">
+        <strong>Houston LMP: 10,000-Path Monte Carlo Fan Chart (1-year)</strong>
+        <p>Simulated price paths with 10th–90th percentile bands and terminal distribution at t = 1yr. 1-year VaR(95%) = $142/MWh. The right tail of the terminal distribution represents ERCOT scarcity events; these tail outcomes give the tolling agreement its option value even when the mean spark spread is negative.</p>
+      </div>
+    </figure>
+  </div>
   </section>
 
   <section>
@@ -187,7 +212,8 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 </div>
 </main>
 <footer class="footer">
-  <p>This project was done in collaboration with Brenda Valencia.</p>
+  <p>Financing the Grid</p>
+  <p>This project was completed in collaboration with Brenda Valencia.</p>
 </footer>
 </body>
 </html>

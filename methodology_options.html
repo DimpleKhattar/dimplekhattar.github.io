@@ -49,6 +49,14 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 .step-text{font-size:0.88em;color:#444;line-height:1.7;}
 .footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
 @media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.stat-grid{grid-template-columns:1fr;}}
+
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;max-height:380px;}
+.fig-caption{padding:16px 18px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.87em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:0;line-height:1.6;}
+@media(max-width:900px){.fig-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -162,6 +170,16 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
       </div>
     </div>
     <p>The option value is substantial even with a deeply negative forward because volatility is large relative to the distance from zero. &#x3c3; = $48.69/MWh vs F = &#x2212;$29.04/MWh: the forward is only 0.6 standard deviations out-of-the-money on a monthly basis. Options this close to the money have significant time value.</p>
+  
+  <div class="fig-grid" style="grid-template-columns:1fr;">
+    <figure class="fig-card">
+      <img src="figures/GBM_Calibration_AllSeries_correlation_matrix_daily_log_returns_HB-HOUSTON_HB-WEST_HenryHub.png" alt="Correlation matrix of daily log-returns across HB-Houston, HB-West, and Henry Hub">
+      <div class="fig-caption">
+        <strong>Correlation Matrix: Daily Log-Returns Across All Three Series</strong>
+        <p>Pearson correlation of daily log-returns for HB-Houston, HB-West, and Henry Hub. ρ(HOU, HH) = −0.044 (near-zero), meaning LMP and gas prices move largely independently. This near-zero correlation adds to spark spread volatility: when LMP spikes, gas cost does not reliably offset it, producing a wide spread distribution and a correspondingly high Bachelier call value even with a deeply negative mean forward spread.</p>
+      </div>
+    </figure>
+  </div>
   </section>
 
   <section>
@@ -184,7 +202,8 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 </div>
 </main>
 <footer class="footer">
-  <p>This project was done in collaboration with Brenda Valencia.</p>
+  <p>Financing the Grid</p>
+  <p>This project was completed in collaboration with Brenda Valencia.</p>
 </footer>
 </body>
 </html>

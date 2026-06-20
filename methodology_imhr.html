@@ -51,6 +51,14 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 .tl-content{font-size:0.88em;color:#444;}
 .footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
 @media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.grid-3,.stat-grid{grid-template-columns:1fr;}}
+
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;max-height:380px;}
+.fig-caption{padding:16px 18px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.87em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:0;line-height:1.6;}
+@media(max-width:900px){.fig-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -180,6 +188,16 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 
     <h3>EPA carbon sensitivity</h3>
     <p>Under EPA Social Cost of Carbon ($51/tonne CO&#x2082;), gas combustion at HR 9,500 produces approximately 1 tonne of CO&#x2082; per 4.7 MWh. Carbon cost: ~$10.87/MWh. Clean breakeven LMP rises from $31.13/MWh to $84.06/MWh. In-money hours collapse to ~3.5% and strip value falls by over 90%.</p>
+  
+  <div class="fig-grid" style="grid-template-columns:1fr;">
+    <figure class="fig-card">
+      <img src="figures/GBM_MonteCarlo_SparkSpread_HB-HOUSTON_HSC-gas_adder-3.00perMMBtu_HR-9.5_10kpaths_1yr_horizon_fan_chart_profitability_VaR_CVaR.png" alt="Houston spark spread Monte Carlo fan chart with profitability shading">
+      <div class="fig-caption">
+        <strong>Houston Spark Spread: 10,000 Paths with Profitability Shading</strong>
+        <p>Simulated hourly spark spread paths (HR 9.5, $3.00/MMBtu adder). Green shading marks hours where the spread exceeds zero (generator in-money); red marks hours where the grid is cheaper. Mean forward spread = −$29.04/MWh, but the right tail extends to +$80–120/MWh during scarcity events. These tail hours account for the Bachelier call strip value of $3.63M–$6.18M: the generator earns nothing on average but captures large payoffs on the hours that matter.</p>
+      </div>
+    </figure>
+  </div>
   </section>
 
   <section>
@@ -202,7 +220,8 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 </div>
 </main>
 <footer class="footer">
-  <p>This project was done in collaboration with Brenda Valencia.</p>
+  <p>Financing the Grid</p>
+  <p>This project was completed in collaboration with Brenda Valencia.</p>
 </footer>
 </body>
 </html>

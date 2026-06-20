@@ -49,6 +49,14 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 .regime-pct.neg{color:#b93030;}
 .footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
 @media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.grid-3,.stat-grid{grid-template-columns:1fr;}.regime-row{grid-template-columns:1fr 1fr;}}
+
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;max-height:380px;}
+.fig-caption{padding:16px 18px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.87em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:0;line-height:1.6;}
+@media(max-width:900px){.fig-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -178,6 +186,26 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
     </table>
     <p>The monthly variation is driven by seasonal solar output: March has the highest negative price frequency because it combines high solar output with lower demand than April. April has the deepest negative prices (&#x2212;$6.4/MWh mean) because of sustained solar curtailment during low-demand afternoons.</p>
     <p>49.4% of solar trough hours (10:00&#x2013;16:00) record negative LMP. Pearson correlation between solar generation level and negative-price frequency by hour = +0.93, a near-perfect linear relationship.</p>
+  
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/ERCOT_West_Intermittency_ScatterPlots_RenewableGen_vs_LMP_West_HourOfDay.png" alt="Renewable generation vs LMP scatter plots by hour of day at West Texas">
+      <div class="fig-caption"><strong>Renewable Generation vs LMP: Scatter Plots by Hour of Day (West)</strong><p>Hourly solar and wind output plotted against HB-West LMP for each 4-hour block. The 10:00–16:00 panel shows the sharpest negative slope (r = −0.80 for solar vs LMP), confirming that peak solar generation drives negative prices. This pattern defines the solar trough window used in both the LSMC exercise schedule and the BESS charging strategy.</p></div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/ERCOT_West_Intermittency_GenerationProfile_NegativePricingPatterns_Hourly.png" alt="Hourly generation profile and negative price frequency at West Texas">
+      <div class="fig-caption"><strong>Hourly Generation Profile and Negative Price Frequency (West)</strong><p>Mean MW of solar and wind output by hour of day (bars) overlaid with the percentage of hours recording negative LMP (line). Negative price frequency peaks at 47–53% during 11:00–15:00. Shifting AI training into this window converts average daily power cost from positive to negative, producing the −$372/day average at West under the LSMC optimal policy.</p></div>
+    </figure>
+  </div>
+  <div class="fig-grid" style="grid-template-columns:1fr;">
+    <figure class="fig-card">
+      <img src="figures/NBB-SO_4Z_WestZone_diagnostic_panel_ROC_ActualVsPredicted_F1Threshold_ConfusionMatrix_Fmu_Falpha_FeatureImportanceMDI_train2018-2023.png" alt="NBB-SO West zone six-panel diagnostic including ROC curve and feature importance">
+      <div class="fig-caption">
+        <strong>NBB-SO West Zone Diagnostic Panel</strong>
+        <p>Six-panel diagnostic for the West zone outage model: ROC curve, actual vs predicted outage counts, F1 threshold, confusion matrix, and MDI feature importance for both F_μ (mean count) and F_α (overdispersion) classifiers. Wind speed ranks first in both classifiers, meaning the cheapest power hours and the highest outage risk hours coincide. This is the quantitative basis for retaining physical BESS as insurance rather than arbitrage.</p>
+      </div>
+    </figure>
+  </div>
   </section>
 
   <section>
@@ -200,7 +228,8 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 </div>
 </main>
 <footer class="footer">
-  <p>This project was done in collaboration with Brenda Valencia.</p>
+  <p>Financing the Grid</p>
+  <p>This project was completed in collaboration with Brenda Valencia.</p>
 </footer>
 </body>
 </html>

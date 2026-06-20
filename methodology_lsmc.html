@@ -55,6 +55,14 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 .bv.w{color:#1a7a4a;} .bv.h{color:#664d2a;}
 .footer{border-top:1px solid #eee;padding:32px 60px;font-size:0.82em;color:#999;}
 @media(max-width:900px){.navbar{padding:14px 30px;}.content-wrapper{padding:40px 30px;}.grid-2,.stat-grid{grid-template-columns:1fr;}.boundary-row{grid-template-columns:1fr 1fr;}}
+
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.fig-card{border:1px solid #eee;border-radius:2px;overflow:hidden;background:white;}
+.fig-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff;max-height:380px;}
+.fig-caption{padding:16px 18px;border-top:1px solid #eee;}
+.fig-caption strong{display:block;font-size:0.87em;font-weight:500;color:#333;margin-bottom:6px;}
+.fig-caption p{font-size:0.82em;color:#666;margin-bottom:0;line-height:1.6;}
+@media(max-width:900px){.fig-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -166,6 +174,17 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 
     <p>The West boundary is completely flat at &#x2212;$0.42/MWh across all 24 hours. This means: train at West whenever LMP &#x2265; &#x2212;$0.42, which is essentially always except during the most severely negative-price hours (deep curtailment events). The West optimal policy is almost always to run training because the LMP is so often near zero or negative.</p>
     <p>Houston shows a strongly time-varying boundary, reflecting the peak-hour generator economics. The $121/MWh threshold at 19:00&#x2013;21:00 reflects that at those hours, the generator produces at a margin well above gas cost; it is far more valuable to run the generator than to use cheap power for training.</p>
+  
+  <div class="fig-grid">
+    <figure class="fig-card">
+      <img src="figures/LSMC_OptimalTraining_ExerciseBoundary_HourlyThresholds_HOU_WEST_Chart.png" alt="LSMC optimal exercise boundaries by hour for Houston and West">
+      <div class="fig-caption"><strong>LSMC Exercise Boundaries: Hourly LMP Thresholds (Houston and West)</strong><p>Optimal exercise boundary θ*(h) by hour of day for both sites. West is flat at −$0.42/MWh across all 24 hours, meaning training runs at any hour where LMP exceeds this near-zero floor. Houston shows a sharply time-varying boundary that peaks at $121/MWh during 19:00–21:00, when dispatching the gas generator produces far more value than consuming cheap power for training.</p></div>
+    </figure>
+    <figure class="fig-card">
+      <img src="figures/LSMC_OptimalTraining_RevenueImprovement_OptimalVsNaive_Comparison_Chart.png" alt="LSMC scheduling gain versus naive 24/7 baseline by month">
+      <div class="fig-caption"><strong>Scheduling Gain: +$2.13M over 6 Months vs Naive 24/7 Baseline</strong><p>Daily scheduling gain under the LSMC optimal policy vs uniform 24/7 training. Every month shows a positive gain with no reversal, averaging $11,714/day. West contributes through scheduled training during negative-price windows; Houston contributes through evening peak avoidance. The gain requires only a software change to the job scheduler with no hardware investment.</p></div>
+    </figure>
+  </div>
   </section>
 
   <section>
@@ -188,7 +207,8 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.02);}
 </div>
 </main>
 <footer class="footer">
-  <p>This project was done in collaboration with Brenda Valencia.</p>
+  <p>Financing the Grid</p>
+  <p>This project was completed in collaboration with Brenda Valencia.</p>
 </footer>
 </body>
 </html>

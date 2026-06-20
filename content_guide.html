@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Guide — Financing the Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:#222;line-height:1.7;padding:48px 60px;}
+h1{font-size:1.5em;font-weight:700;margin-bottom:8px;color:#111;}
+.intro{font-size:0.9em;color:#555;margin-bottom:40px;max-width:680px;border-bottom:2px solid #111;padding-bottom:20px;}
+.intro code{font-family:'DM Mono',monospace;font-size:0.88em;background:#f0f0f0;padding:2px 6px;border-radius:3px;}
+.page-block{margin-bottom:56px;}
+.page-title{font-family:'DM Mono',monospace;font-size:0.72em;letter-spacing:0.18em;text-transform:uppercase;background:#111;color:#fff;padding:8px 14px;border-radius:2px;display:inline-block;margin-bottom:20px;}
+.section-block{margin-bottom:28px;padding-left:0;}
+.section-hd{font-family:'DM Mono',monospace;font-size:0.7em;letter-spacing:0.15em;text-transform:uppercase;color:#888;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #eee;}
+.text-entry{background:#fafafa;border:1px solid #e8e8e8;border-radius:3px;padding:12px 16px;margin-bottom:10px;}
+.text-entry .label{font-family:'DM Mono',monospace;font-size:0.62em;letter-spacing:0.12em;text-transform:uppercase;color:#aaa;margin-bottom:5px;}
+.text-entry .body{font-size:0.88em;color:#333;line-height:1.65;}
+.text-entry .body strong{font-weight:600;color:#111;}
+.note{font-family:'DM Mono',monospace;font-size:0.7em;color:#888;background:#fff8e8;border:1px solid #f0d888;border-radius:2px;padding:8px 12px;margin-bottom:16px;}
+@media(max-width:700px){body{padding:32px 24px;}}
+</style>
+</head>
+<body>
+
+<h1>Content Guide &#x2014; Financing the Grid</h1>
+<p class="intro">
+  This file lists all editable body text for every page, grouped by page and section.<br>
+  To edit: open the corresponding <code>.html</code> file in a text editor, use <strong>Ctrl+F / Cmd+F</strong> to search for the sentence you want to change, and replace it in place.<br>
+  All files live in: <code>/Users/dimple/Library/CloudStorage/Box-Box/github page/</code>
+</p>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: grid_financing.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">grid_financing.html &#x2014; Main Page</div>
+
+  <div class="section-block">
+    <div class="section-hd">Masthead subtitle</div>
+    <div class="text-entry">
+      <div class="label">Subtitle (below H1)</div>
+      <div class="body">A quantitative operating framework for two 100-MW AI data centers in ERCOT&#x2019;s Houston and West load zones. Six analytical modules cover price dynamics, generator dispatch, renewable intermittency, options pricing, battery valuation, and machine-learning scheduling.</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-hd">01 . Context</div>
+    <div class="text-entry">
+      <div class="label">Left column</div>
+      <div class="body">An operator runs two 100-MW AI data centers in ERCOT &#x2014; Houston and West Texas. At GPT-5.4 Pro pricing, each MW generates <strong>$5M/day</strong>. Six-month gross revenue: <strong>$127.3B</strong>. Total power cost: <strong>$17.2M</strong> (0.0135% of revenue). Power is not a cost centre. It is a series of options to price correctly.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Right column</div>
+      <div class="body">The West site sits in ERCOT&#x2019;s most renewable-dense corridor: <strong>28.4% of hours recorded negative LMP</strong>. The Houston site accesses a natural gas generator whose April in-the-money frequency reached <strong>57.4%</strong>. The grid pays you to consume at West. The generator pays you to produce at Houston.</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-hd">03 . Underlying Framework &#x2014; NBB-SO panel</div>
+    <div class="text-entry">
+      <div class="label">NBB-SO description</div>
+      <div class="body">Standard Poisson regression forces Var(Y) = &#x3bc;. Energy outages are overdispersed &#x2014; variance far exceeds the mean. NBB-SO adds a Gamma random effect per observation, separating the <strong>mean count</strong> (F_&#x3bc;) from the <strong>dispersion</strong> (F_&#x3b1;), each estimated by a gradient-boosted classifier.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">West zone finding</div>
+      <div class="body"><strong>West zone finding:</strong> wind_speed dominates both F_&#x3bc; and F_&#x3b1;. Cheapest power hours = highest outage risk hours. This is the primary justification for retaining physical BESS as insurance, not arbitrage.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Revenue model description</div>
+      <div class="body">Every operating decision maps to a dollar output through a chain of closed-form expressions: [equations] Total real option value = <strong>$18.5M</strong>: grid procurement $11.3M + generator strip $3.63&#x2013;6.18M + LSMC scheduling +$2.13M.</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-hd">04 . Key Findings &#x2014; six cards</div>
+    <div class="text-entry">
+      <div class="label">Finding 01</div>
+      <div class="body">As Henry Hub fell $0.86/MMBtu, IMHR rose from 6,200 to 13,549 BTU/kWh. In-the-money hours rose from 13.1% to 57.4%. The tolling agreement is worth $3.63M&#x2013;$6.18M as a Bachelier strip.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Finding 02</div>
+      <div class="body">49.4% of solar trough hours record negative LMP. r = +0.93 between solar output and negative-price frequency. Wind events that create cheap power also drive outage risk.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Finding 03</div>
+      <div class="body">Optimal West exercise boundary = &#x2212;$0.42/MWh: train only when price is zero or negative. Average daily power cost at West becomes &#x2212;$372/day. The grid pays you to train.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Finding 04</div>
+      <div class="body">Physical BESS breakeven requires $445/MWh spread vs $152/MWh historical mean TB2. Virtual TBx swap generates +$204,789 net with zero capital outlay.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Finding 05</div>
+      <div class="body">$11.3M of the $18.5M total comes from grid procurement optionality &#x2014; the value of not being locked into gas at $58.33/MWh when the grid is cheaper 66% of hours.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Finding 06</div>
+      <div class="body">Under EPA SCC ($51/tonne), clean breakeven LMP rises to $84.06/MWh. In-the-money hours collapse from 33.4% to ~3.5%. HRCO strip loses over 90% of its value.</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-hd">06 . Policy Implication</div>
+    <div class="text-entry">
+      <div class="label">Left column</div>
+      <div class="body">A data center that schedules training during solar curtailment, dispatches gas only during spikes, and enters financial contracts for spreads is performing the function grid operators need most: <strong>flexible, price-responsive demand</strong>. The $18.5M in value is ERCOT&#x2019;s market design working as intended.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Right column</div>
+      <div class="body">Most US AI data centers sit in regulated utility territories where real-time pricing is limited. As AI electricity demand scales to 50&#x2013;100 GW by 2030, the case for extending competitive market access to large flexible loads deserves serious policy attention. The infrastructure exists. The pricing signal does not.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Pullquote</div>
+      <div class="body">Flexibility, not capacity, is the scarce resource in a high-renewables grid. The operator that knows when <em>not</em> to consume has a structural advantage that scales with renewable penetration.</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-hd">07 . Selected Figures &#x2014; captions</div>
+    <div class="text-entry">
+      <div class="label">Chart 1 caption (LSMC Exercise Boundary)</div>
+      <div class="body">West boundary is flat at &#x2212;$0.42/MWh across all 24 hours: train whenever price is at or above zero, capturing every negative-LMP window. Houston peaks at $121/MWh during 19:00&#x2013;21:00, reflecting the opportunity cost of using cheap power when the generator could dispatch at a premium.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Chart 1 implication badge text</div>
+      <div class="body">Scheduling West training during solar trough hours produces an average daily power cost of &#x2212;$372/day. Houston&#x2019;s time-varying threshold captures generator strip value by deferring training to cheap overnight hours.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Chart 2 caption (Revenue Improvement)</div>
+      <div class="body">Daily improvement averages $11,714/day with no month showing a reversal. West total power cost over the period is negative &#x2014; the operator is net paid by the grid. Annualised: approximately $4.3M/year from scheduling alone, with zero capex.</div>
+    </div>
+    <div class="text-entry">
+      <div class="label">Chart 2 implication badge text</div>
+      <div class="body">$2.13M gain requires one change: update the training job scheduler to follow the hourly LMP threshold rule. Consistent gains across all months confirm robustness to seasonal variation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_gbm.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_gbm.html &#x2014; Price Dynamics / GBM</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">How we modelled electricity and natural gas price uncertainty using Geometric Brownian Motion, calibrated on 2,135 hourly ERCOT observations, to generate 10,000 forward price paths for options and battery valuation.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">What is it &#x2014; intro paragraph</div>
+    <div class="text-entry"><div class="body">GBM is the standard continuous-time model for commodity and energy price dynamics. It assumes log-prices follow a random walk with drift, producing log-normally distributed terminal prices.</div></div>
+    <div class="text-entry"><div class="label">After SDE equation</div><div class="body">GBM is appropriate here because electricity and gas prices: (a) are always positive, (b) show mean-reverting-like behaviour in the log-return space, and (c) have well-understood volatility structures that can be estimated from historical data.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">How it fits &#x2014; intro</div>
+    <div class="text-entry"><div class="body">Every quantitative piece of the strategy depends on knowing the distribution of future prices:</div></div>
+    <div class="text-entry"><div class="label">Callout</div><div class="body">The GBM parameters &#x3c3;_HOU = 46.3%/yr and &#x3c3;_WEST = 62.0%/yr are the single most important calibration inputs. They determine the width of the Bachelier call distribution, the LSMC option value, and the 10,000-path fan chart confidence intervals.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Findings &#x2014; narrative</div>
+    <div class="text-entry"><div class="body">The negative correlation &#x3c1;(HOU, HH) = &#x2212;0.044 is economically important: when gas prices spike (expensive fuel), LMPs also tend to spike &#x2014; but the relationship is weak. This means the spark spread distribution is wide: gas cost increases do not reliably offset LMP increases. The generator retains option value even when gas is expensive.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; four paragraphs</div>
+    <div class="text-entry"><div class="label">Para 1</div><div class="body"><strong>West is structurally more volatile.</strong> &#x3c3;_WEST = 62.0%/yr vs &#x3c3;_HOU = 46.3%/yr. Every options calculation using West LMP will show wider distributions, higher option premia, and larger LSMC gains. West is the higher-value site from a financial options perspective.</div></div>
+    <div class="text-entry"><div class="label">Para 2</div><div class="body"><strong>The near-zero LMP-gas correlation matters.</strong> &#x3c1; = &#x2212;0.044 means the generator is not a perfect hedge for grid price risk. When grid LMP is high (bad for the buyer), gas costs may also be high (bad for the generator owner). The tolling agreement is valuable precisely because it caps the downside on the gas side.</div></div>
+    <div class="text-entry"><div class="label">Para 3</div><div class="body"><strong>Fat tails justify the real options approach.</strong> Both series reject normality (Shapiro-Wilk p &lt; 0.01). Bachelier normal pricing is a first-order approximation &#x2014; but it is more appropriate than Black-Scholes here because the forward spark spread can be negative, which Black-Scholes cannot handle directly.</div></div>
+    <div class="text-entry"><div class="label">Para 4</div><div class="body"><strong>LSMC requires GBM paths.</strong> The 10,000 Monte Carlo paths from this calibration feed directly into the LSMC backward induction. The exercise boundary &#x3b8;* = &#x2212;$0.42/MWh at West and &#x3b8;* = $121/MWh at Houston peak hours are computed from these simulations.</div></div>
+    <div class="text-entry"><div class="label">Callout</div><div class="body">The calibrated volatility parameters confirm that power procurement at both sites has meaningful option value. At &#x3c3; = 62%/yr, even a short-dated (1-month) at-the-money option on West LMP is worth several dollars per MWh &#x2014; far more than the cost of the financial instruments used to capture it.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_imhr.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_imhr.html &#x2014; Generator Dispatch / IMHR</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">How we determined when the Houston natural gas generator is economically worth dispatching using the Implied Market Heat Rate as a real-time signal, and valued the tolling agreement as a Bachelier call strip.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">What is it</div>
+    <div class="text-entry"><div class="body">The <strong>Implied Market Heat Rate (IMHR)</strong> converts the electricity price into the units of natural gas consumption per unit of electricity, making it directly comparable to the physical heat rate of the generator. It answers: "at current prices, how efficiently would I have to burn gas to break even on electricity generation?"</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">How it fits &#x2014; intro</div>
+    <div class="text-entry"><div class="body">The Houston site has a tolling agreement granting the right to dispatch a natural gas generator at a fixed heat rate of 9,500 BTU/kWh plus a $3.00/MMBtu variable O&amp;M adder. This creates a <strong>spark spread option</strong>: the right but not obligation to produce electricity at a known cost each hour.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Findings &#x2014; narrative</div>
+    <div class="text-entry"><div class="body">The rapid improvement from February to April is driven by declining Henry Hub prices (&#x2212;$0.86/MMBtu over the period) rather than rising LMP. This is an important asymmetry: the generator becomes more valuable as gas gets cheaper, not as electricity gets more expensive.</div></div>
+    <div class="text-entry"><div class="label">EPA sensitivity</div><div class="body">Under EPA Social Cost of Carbon ($51/tonne CO&#x2082;), gas combustion at HR 9,500 produces approximately 1 tonne of CO&#x2082; per 4.7 MWh. Carbon cost: ~$10.87/MWh. Clean breakeven LMP rises from $31.13/MWh to $84.06/MWh. <strong>In-the-money hours collapse to ~3.5%</strong> and strip value falls by over 90%.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; four paragraphs</div>
+    <div class="text-entry"><div class="label">Para 1</div><div class="body"><strong>The generator is the right asset now.</strong> At $2.75/MMBtu Henry Hub and 57.4% in-money hours in April, the generator is not a backup &#x2014; it is a primary generation source. The tolling agreement is worth holding at any cost below $6.18M.</div></div>
+    <div class="text-entry"><div class="label">Para 2</div><div class="body"><strong>The dispatch rule is automatable.</strong> IMHR &gt; 9,500 is a single-variable hourly rule. No discretionary judgement required. Automate the dispatch decision through the energy management system with a live HH feed.</div></div>
+    <div class="text-entry"><div class="label">Para 3</div><div class="body"><strong>Negative correlation adds value.</strong> &#x3c1;(LMP, HH) = &#x2212;0.044 means gas price declines do not offset LMP increases. The generator benefits when either price moves favourably, independently. This produces a wider spark spread distribution and higher option value than a positively-correlated pair would.</div></div>
+    <div class="text-entry"><div class="label">Para 4</div><div class="body"><strong>Carbon risk is the scenario to watch.</strong> If EPA carbon pricing is reinstated at $51/tonne, the entire generator economics flip. The HRCO strip is effectively a short position on carbon policy. This is the primary downside scenario.</div></div>
+    <div class="text-entry"><div class="label">Callout</div><div class="body">The IMHR analysis proves that what initially appeared to be a marginal tolling agreement is actually a significant option. A strategy that decommissions or sells the agreement in February (13.1% in-money) would leave $5M+ on the table by April.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_intermittency.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_intermittency.html &#x2014; West Intermittency</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">How we analysed ERCOT generation data to quantify the frequency, depth, and hourly pattern of negative prices at the HB-WEST hub, and how this connects to both the BESS strategy and the outage risk at the West data center.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">What is it &#x2014; intro</div>
+    <div class="text-entry"><div class="body">In a deregulated electricity market, prices can go negative when supply exceeds demand and generators cannot be economically curtailed quickly. West Texas is ERCOT&#x2019;s most renewable-intensive zone: wind farms across the Permian Basin and solar farms throughout the region can collectively generate more power than the local grid can absorb.</div></div>
+    <div class="text-entry"><div class="label">Closing sentence</div><div class="body">A negative price means generators are paying consumers to take electricity. From the data center operator&#x2019;s perspective: when training, every negative-price hour is a payment received, not a cost incurred.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Findings &#x2014; narrative</div>
+    <div class="text-entry"><div class="body">The monthly variation is driven by seasonal solar output: March has the highest negative price frequency because it combines high solar output with lower demand than April. April has the deepest negative prices (&#x2212;$6.4/MWh mean) because of sustained solar curtailment during low-demand afternoons.</div></div>
+    <div class="text-entry"><div class="body">49.4% of solar trough hours (10:00&#x2013;16:00) record negative LMP. Pearson correlation between solar generation level and negative-price frequency by hour = +0.93 &#x2014; near-perfect linear relationship.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; callout</div>
+    <div class="text-entry"><div class="body"><strong>The core West site tension:</strong> The single variable (wind_speed) that creates the most valuable charging windows also creates the highest outage risk. Any operating policy that treats negative prices as pure opportunity &#x2014; without accounting for simultaneous grid fragility &#x2014; is incomplete. The LSMC boundary at &#x2212;$0.42/MWh implicitly handles this by running training (not BESS charge) during these windows, decoupling the scheduling opportunity from the physical battery constraint.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_options.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_options.html &#x2014; Options Pricing / Bachelier</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">What is it &#x2014; intro</div>
+    <div class="text-entry"><div class="body">The standard Black-Scholes model assumes the underlying asset follows a log-normal distribution, meaning it can never be negative. For a single commodity option (oil, gas), this is reasonable. But for a <strong>spread option</strong> &#x2014; such as the spark spread (LMP minus gas cost) &#x2014; the underlying can and does go negative. Black-Scholes breaks down.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">How it fits &#x2014; callout</div>
+    <div class="text-entry"><div class="body">A negative forward spread does not mean the option is worthless &#x2014; it means the option is deeply out-of-the-money on the mean path. With &#x3c3;_spark = $48.69/MWh and a 1-month horizon, the right tail of the distribution extends well into positive territory. The Bachelier call price captures this tail value.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Findings &#x2014; narrative below table</div>
+    <div class="text-entry"><div class="body">The option value is substantial even with a deeply negative forward because volatility is large relative to the distance from zero. &#x3c3; = $48.69/MWh vs F = &#x2212;$29.04/MWh: the forward is only 0.6 standard deviations out-of-the-money on a monthly basis. Options this close to the money have significant time value.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; callout</div>
+    <div class="text-entry"><div class="body">The options pricing module is where the generator transforms from a &#x201Cbackup power source&#x201D; into a financial instrument. The $3.63M&#x2013;$6.18M strip value quantifies exactly what the operator would pay to keep the right-to-dispatch, and therefore what price the counterparty can reasonably demand for the tolling agreement.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_bess.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_bess.html &#x2014; Battery Valuation / TB-x Swap</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">How we valued battery energy storage at the West Texas site using the TB-x (Time-Block spread) swap framework, compared physical vs virtual BESS economics, and determined that the virtual swap dominates while physical BESS serves only as outage insurance.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; callout</div>
+    <div class="text-entry"><div class="body">The virtual swap captures the financial value of the price spread without requiring the physical battery to be in the right state of charge at the right hour. It removes operational complexity and capital burden while preserving the economic upside. The physical battery is kept for a different purpose: the one thing money cannot replicate &#x2014; actual electrons during an outage.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: methodology_lsmc.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">methodology_lsmc.html &#x2014; LSMC Optimal Training</div>
+  <div class="note">Five sections: What is it? / How does it fit here? / How did we work on it? / Findings / Implications</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">How we applied Longstaff-Schwartz backward induction to find the optimal hourly decision policy for AI training workload scheduling, turning the power price signal into a +$2.13M gain over a naive 24/7 baseline.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">What is it &#x2014; intro</div>
+    <div class="text-entry"><div class="body">LSMC (Longstaff &amp; Schwartz, 2001) is an algorithm originally developed for valuing American options &#x2014; financial instruments that can be exercised at any time before expiry. The core insight is that the optimal exercise decision at each time step requires knowing the <strong>expected future value of waiting</strong>, which cannot be observed but can be estimated from simulated price paths via ordinary least squares regression.</div></div>
+    <div class="text-entry"><div class="label">Second paragraph</div><div class="body">In our context, &#x201Cexercising&#x201D; means running AI training at a given hour, consuming power at the current LMP. The alternative is &#x201Cwaiting&#x201D; &#x2014; deferring training to a future hour that may have cheaper (or negative) LMP. The LSMC algorithm finds the exact LMP threshold below which it is worth training now vs waiting.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Findings &#x2014; narrative</div>
+    <div class="text-entry"><div class="body">The <strong>West boundary is completely flat at &#x2212;$0.42/MWh across all 24 hours</strong>. This means: train at West whenever LMP &#x2265; &#x2212;$0.42 &#x2014; which is essentially always, except during the most severely negative-price hours (deep curtailment events). The West optimal policy is almost always to run training because the LMP is so often near zero or negative.</div></div>
+    <div class="text-entry"><div class="label">Houston boundary paragraph</div><div class="body">Houston shows a strongly time-varying boundary, reflecting the peak-hour generator economics. The $121/MWh threshold at 19:00&#x2013;21:00 reflects that at those hours, the generator is producing at a margin well above gas cost &#x2014; it is far more valuable to run the generator than to use cheap power for training.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">Implications &#x2014; callout</div>
+    <div class="text-entry"><div class="body">LSMC was developed for American options in quantitative finance. Its application here to AI training scheduling is a direct translation: the operator holds a series of American-style real options on cheap power, and LSMC identifies exactly when to exercise each one. The framework is extensible: as the West site adds GPU capacity, the same algorithm scales linearly.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: other_charts.html -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page-block">
+  <div class="page-title">other_charts.html &#x2014; Extended Chart Gallery</div>
+  <div class="note">19 charts in 4 groups. To edit a caption: open other_charts.html, find the chart filename in the img src, and edit the paragraph below it. Each fig-card has an img, a strong (bold title), a p (caption), and a badge.</div>
+
+  <div class="section-block">
+    <div class="section-hd">Page subtitle</div>
+    <div class="text-entry"><div class="body">Full set of outputs from GBM calibration, Monte Carlo simulation, intermittency analysis, and NBB-SO outage modelling. The two LSMC charts appear on the main page; all others are collected here.</div></div>
+  </div>
+  <div class="section-block">
+    <div class="section-hd">How to find any chart caption</div>
+    <div class="text-entry"><div class="body">Each chart has a unique filename in the img src attribute. In your code editor: Ctrl+F &#x2192; search for the short filename keyword (e.g. "correlation_matrix" or "NBB-SO_4Z_West") &#x2192; the paragraph immediately following the &lt;strong&gt; tag is the caption text you can edit.</div></div>
+  </div>
+</div>
+
+<p style="font-size:0.78em;color:#aaa;margin-top:48px;font-family:'DM Mono',monospace;">content_guide.html &#xb7; Financing the Grid &#xb7; University of Chicago, Spring 2026</p>
+</body>
+</html>
