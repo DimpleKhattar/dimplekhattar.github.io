@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Development Econ Projects | Dimple Khattar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{font-family:'DM Sans',sans-serif;background-color:#F5F2ED;color:#333;line-height:1.7;padding-top:70px;}
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background-color:#F5F2ED;border-bottom:1px solid #eee;z-index:100;width:100%;}
+.navbar-title{font-family:'DM Serif Display',serif;font-size:1.3em;font-weight:400;}
+.navbar-icons{display:flex;gap:20px;}
+.navbar-icons a{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;color:#333;transition:opacity 0.3s;}
+.navbar-icons a:hover{opacity:0.6;}
+.navbar-icons svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+main{width:100%;}
+.content-wrapper{max-width:1200px;margin:0 auto;padding:60px 60px;}
+.kicker{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#666;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';display:inline-block;width:24px;height:1px;background:#333;}
+h1{font-family:'DM Serif Display',serif;font-size:2em;font-weight:400;margin-bottom:12px;line-height:1.2;}
+.subtitle{font-size:0.92em;color:#666;margin-bottom:48px;max-width:700px;line-height:1.7;}
+.dev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.dev-card{border:1px solid #eee;border-radius:2px;background:white;padding:24px 24px;display:flex;flex-direction:column;}
+.sector-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:0.6em;letter-spacing:0.1em;text-transform:uppercase;color:#664d2a;background:#faf3e8;border:1px solid #ecdcc0;padding:4px 9px;border-radius:2px;width:fit-content;margin-bottom:14px;}
+.sector-badge svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.dev-card h3{font-family:'DM Serif Display',serif;font-size:1.05em;font-weight:400;line-height:1.32;margin-bottom:9px;color:#222;}
+.pi-line{font-size:0.8em;color:#555;margin-bottom:5px;line-height:1.6;}
+.pi-line a{color:#333;text-decoration:underline;text-decoration-color:#ccc;text-underline-offset:2px;}
+.pi-line a:hover{text-decoration-color:#333;}
+.dates{font-family:'DM Mono',monospace;font-size:0.63em;letter-spacing:0.08em;color:#999;text-transform:uppercase;margin-bottom:16px;}
+.dev-card ul{list-style:none;margin-bottom:14px;}
+.dev-card li{font-size:0.8em;color:#555;line-height:1.6;padding-left:14px;position:relative;margin-bottom:8px;}
+.dev-card li::before{content:'\2014';position:absolute;left:0;color:#bbb;}
+.study-links{margin-top:auto;padding-top:12px;border-top:1px solid #f0f0f0;display:flex;gap:14px;flex-wrap:wrap;}
+.study-links a{font-family:'DM Mono',monospace;font-size:0.64em;letter-spacing:0.06em;text-transform:uppercase;color:#333;text-decoration:none;}
+.study-links a:hover{text-decoration:underline;}
+.footer{border-top:1px solid #eee;padding:36px 60px;font-size:0.85em;color:#666;}
+.footer p{margin-bottom:5px;}
+.footer strong{color:#333;}
+@media(max-width:1000px){.dev-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:700px){
+  .navbar{padding:16px 24px;}
+  .content-wrapper{padding:40px 24px;}
+  .dev-grid{grid-template-columns:1fr;}
+  h1{font-size:1.7em;}
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <div class="navbar-title">Dimple Khattar</div>
+  <div class="navbar-icons">
+    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume">
+      <svg viewBox="0 0 24 24"><path d="M4 4v16a2 2 0 002 2h12a2 2 0 002-2V8.342a2 2 0 00-.602-1.43l-4.44-4.342A2 2 0 0013.56 2H6A2 2 0 004 4z"/><path d="M9 13h6"/><path d="M9 17h3"/><path d="M14 2v4a2 2 0 002 2h4"/></svg>
+    </a>
+    <a href="projects.html" title="Projects">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    </a>
+    <a href="location.html" title="Location">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/khattardimple24/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:dimplekhattar@uchicago.edu" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+    <a href="https://github.com/dimplekhattar" target="_blank" rel="noopener noreferrer" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+    </a>
+  </div>
+</div>
+
+<main>
+<div class="content-wrapper">
+  <div class="kicker">Development Economics</div>
+  <h1>Field Research &amp; Randomized Evaluations</h1>
+  
+  <div class="dev-grid">
+
+    <!-- Negative Externalities of Antimicrobial Resistance -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Health</span>
+      <h3>Negative Externalities of Antimicrobial Resistance</h3>
+      <p class="pi-line">PIs: <a href="https://economics.uchicago.edu/directory/anne-karing" target="_blank" rel="noopener noreferrer">Anne Karing</a>, <a href="https://economics.uchicago.edu/directory/Michael-Dinerstein" target="_blank" rel="noopener noreferrer">Michael Dinerstein</a></p>
+      <div class="dates">Jan 2026 &ndash; Jun 2026 &middot; University of Chicago</div>
+      <ul>
+        <li>Performed large-scale data cleaning (using AI-assisted tools) and conducted an extensive literature review.</li>
+        <li>Built indicator variables and ran regression models, paired with data visualization, to support the analysis.</li>
+      </ul>
+    </div>
+
+    <!-- TEACH -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Education</span>
+      <h3>TEACH &mdash; System-Based Approaches to Improving Teaching Effectiveness</h3>
+      <p class="pi-line">PIs: <a href="https://economics.uchicago.edu/directory/christina-brown" target="_blank" rel="noopener noreferrer">Christina Brown</a>, <a href="https://www.terry.uga.edu/directory/people/jim-berry" target="_blank" rel="noopener noreferrer">Jim Berry</a>, <a href="https://aede.osu.edu/our-people/anne-fitzpatrick" target="_blank" rel="noopener noreferrer">Anne Fitzpatrick</a>, <a href="https://lerner.udel.edu/faculty-staff-directory/adrienne-lucas/" target="_blank" rel="noopener noreferrer">Adrienne Lucas</a>, <a href="https://lerner.udel.edu/faculty-staff-directory/sabrin-beg/" target="_blank" rel="noopener noreferrer">Sabrin Beg</a></p>
+      <div class="dates">Jul 2025 &ndash; Dec 2025 &middot; University of Chicago</div>
+      <ul>
+        <li>Systemized and cleaned incoming survey data and programmed data-collection instruments in SurveyCTO.</li>
+        <li>Ran regression models and built data visualizations to support ongoing analysis.</li>
+      </ul>
+      <div class="study-links">
+        <a href="https://www.socialscienceregistry.org/trials/14870" target="_blank" rel="noopener noreferrer">AEA RCT Registry &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Pakistan Labor Markets -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Labor Markets</span>
+      <h3>Day Labour / Labor Markets Study, Pakistan</h3>
+      <p class="pi-line">PI: <a href="https://economics.uchicago.edu/directory/christina-brown" target="_blank" rel="noopener noreferrer">Christina Brown</a></p>
+      <div class="dates">Jul 2025 &ndash; Dec 2025 &middot; University of Chicago</div>
+      <ul>
+        <li>Systemized and cleaned incoming survey data and programmed data-collection instruments in SurveyCTO.</li>
+        <li>Ran regression models and built data visualizations to support ongoing analysis.</li>
+      </ul>
+    </div>
+
+    <!-- Groundwater Scoping Study, Punjab -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Environment &amp; Water</span>
+      <h3>Groundwater Scoping Study, Punjab</h3>
+      <p class="pi-line">PI: <a href="https://are.berkeley.edu/users/aprajit-mahajan" target="_blank" rel="noopener noreferrer">Aprajit Mahajan</a></p>
+      <div class="dates">Oct 2024 &ndash; Aug 2025 &middot; J-PAL South Asia</div>
+      <ul>
+        <li>Provided thought leadership on the scoping study, working alongside state government officials, agricultural and water specialists, and economists to explore different ways to reduce water consumption in paddy cultivation across Punjab.</li>
+        <li>Supported the PIs on research design, translating a cross-disciplinary scoping process into an evaluation approach for reducing groundwater usage in Punjab.</li>
+      </ul>
+    </div>
+
+    <!-- Cold Storage -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M12 22v-7"/><path d="M9 8c0-3 1-5 3-6 2 1 3 3 3 6-2 1-4 1-6 0z"/><path d="M6 12c1 2 3 3 6 3 3 0 5-1 6-3-2-2-4-3-6-3s-4 1-6 3z"/></svg>Agriculture</span>
+      <h3>The Impacts of Cold Storage Infrastructure and Weather Forecasts on Agricultural Outcomes and Trade</h3>
+      <p class="pi-line">PIs: <a href="https://www.povertyactionlab.org/person/bhogale" target="_blank" rel="noopener noreferrer">Shweta Bhogale</a>, <a href="https://mitsloan.mit.edu/faculty/directory/namrata-kala" target="_blank" rel="noopener noreferrer">Namrata Kala</a></p>
+      <div class="dates">Jul 2024 &ndash; Sep 2024 &middot; J-PAL South Asia</div>
+      <ul>
+        <li>Conducted a qualitative study to understand why technology uptake was low and helped scope the transition from pilot to a full-scale study.</li>
+        <li>Programmed data-collection instruments in SurveyCTO and ran Stata-based data cleaning and quality-assurance checks on incoming data.</li>
+      </ul>
+      <div class="study-links">
+        <a href="https://www.socialscienceregistry.org/trials/12900" target="_blank" rel="noopener noreferrer">AEA RCT Registry &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Rice Mechanization -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M12 22v-7"/><path d="M9 8c0-3 1-5 3-6 2 1 3 3 3 6-2 1-4 1-6 0z"/><path d="M6 12c1 2 3 3 6 3 3 0 5-1 6-3-2-2-4-3-6-3s-4 1-6 3z"/></svg>Agriculture</span>
+      <h3>Mechanizing Together: Leveraging Local Governments for Rice Mechanization</h3>
+      <p class="pi-line">PIs: <a href="https://www.sbrownstone.me/" target="_blank" rel="noopener noreferrer">Steven Brownstone</a>, <a href="https://economics.ucsd.edu/faculty-and-research/faculty-profiles/muralidharan.html" target="_blank" rel="noopener noreferrer">Karthik Muralidharan</a></p>
+      <div class="dates">May 2023 &ndash; Jul 2024 &middot; J-PAL South Asia</div>
+      <ul>
+        <li>Designed the sampling strategy and managed large field teams across multiple simultaneous and sequential rounds of in-person and virtual data collection.</li>
+        <li>Built Python web-scraping pipelines (BeautifulSoup) for data collection, led data cleaning and visualization, ran quality-assurance checks, and streamlined data workflows for efficiency.</li>
+      </ul>
+      <div class="study-links">
+        <a href="https://www.povertyactionlab.org/evaluation/leveraging-local-governments-support-rice-mechanization-india" target="_blank" rel="noopener noreferrer">J-PAL page &rarr;</a>
+        <a href="https://www.socialscienceregistry.org/trials/10642" target="_blank" rel="noopener noreferrer">AEA RCT Registry &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Hybrid Digital Learning -->
+    <div class="dev-card">
+      <span class="sector-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Education</span>
+      <h3>Measuring the Impact of &ldquo;Hybrid&rdquo; Digital Learning in Rural India</h3>
+      <p class="pi-line">PIs: <a href="https://economics.mit.edu/people/faculty/esther-duflo" target="_blank" rel="noopener noreferrer">Esther Duflo</a>, <a href="https://economics.mit.edu/people/faculty/abhijit-banerjee" target="_blank" rel="noopener noreferrer">Abhijit Banerjee</a>, Adrien Pawlik</p>
+      <div class="dates">Apr 2022 &ndash; Apr 2023 &middot; J-PAL South Asia</div>
+      <ul>
+        <li>Led midline and endline data collection, managing a large field team and overseeing day-to-day operations and logistics.</li>
+        <li>Handled data cleaning and quality assurance/quality checks on incoming data, while supporting research design.</li>
+      </ul>
+      <div class="study-links">
+        <a href="https://www.povertyactionlab.org/initiative-project/measuring-impact-hybrid-digital-learning-rural-india" target="_blank" rel="noopener noreferrer">J-PAL page &rarr;</a>
+        <a href="https://www.socialscienceregistry.org/trials/8330" target="_blank" rel="noopener noreferrer">AEA RCT Registry &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</main>
+<footer class="footer">
+</footer>
+</body>
+</html>
